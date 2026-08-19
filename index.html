@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            font-size: 1.05rem; /* Ukuran teks lebih besar agar nyaman dibaca orang tua */
+            font-size: 1.05rem;
         }
         header {
             background: linear-gradient(135deg, #1b365d, #2c3e50);
@@ -83,6 +83,32 @@
             border-radius: 10px;
         }
         .box-section h4 { margin-top: 0; color: #1b365d; font-size: 1.2rem; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; }
+
+        /* Tambahan Kotak Ekstra untuk Benchmarks & Troubleshooting */
+        .extra-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            .extra-grid { grid-template-columns: 1fr; }
+        }
+        .benchmark-box {
+            background-color: #f0fdf4;
+            border: 2px solid #86efac;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .benchmark-box h4 { margin-top: 0; color: #166534; font-size: 1.2rem; border-bottom: 2px solid #bbf7d0; padding-bottom: 10px; }
+
+        .trouble-box {
+            background-color: #fef2f2;
+            border: 2px solid #fca5a5;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .trouble-box h4 { margin-top: 0; color: #991b1b; font-size: 1.2rem; border-bottom: 2px solid #fecaca; padding-bottom: 10px; }
 
         ul, ol { padding-left: 25px; margin: 15px 0; }
         li { margin-bottom: 12px; font-size: 1.05rem; }
@@ -184,9 +210,27 @@
                 </div>
             </div>
 
-            <!-- Bagian Video Panduan Resmi (Sumber 3) -->
+            <!-- Bagian Tambahan: Benchmarks & Troubleshooting untuk Google Maps -->
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Waktu Verifikasi:</strong> Toko biasanya muncul di peta dalam 3 hingga 7 hari kerja setelah verifikasi pos/video sukses.</li>
+                        <li><strong>Target Hasil:</strong> Toko baru yang konsisten mendapat ulasan bintang 5 akan melihat peningkatan pencarian lokal sebanyak 30% dalam bulan pertama.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Akun Ditangguhkan/Suspend)</h4>
+                    <ul>
+                        <li><strong>Nama Toko Terlalu Banyak Kata Kunci:</strong> Hindari spam kata kunci berlebih pada nama (misal: "Jual Hijab Murah Bagus Jakarta"), gunakan nama asli merek Anda.</li>
+                        <li><strong>Titik GPS Salah:</strong> Pastikan pin koordinat pas di depan pintu masuk ruko/toko fisik Anda.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bagian Video Panduan Resmi -->
             <div class="video-section">
-                <h4>📍 Video Panduan Resmi: Cara Mengatur Google Maps untuk Toko Anda[cite: 3]</h4>
+                <h4>📍 Video Panduan Resmi: Cara Mengatur Google Maps untuk Toko Anda</h4>
                 <div class="iframe-container">
                     <iframe src="https://www.youtube.com/embed/UFjqS-ldQGs" allowfullscreen></iframe>
                 </div>
@@ -218,9 +262,27 @@
                 </div>
             </div>
 
-            <!-- Bagian Video Panduan Resmi (Sumber 3, 4) -->
+            <!-- Bagian Tambahan: Benchmarks & Troubleshooting untuk Meta Ads -->
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Biaya per Pesan (Cost per Chat):</strong> Dengan target wilayah kota besar, patokan wajar biaya per pesan WhatsApp masuk berkisar antara Rp10.000 s.d. Rp30.000.</li>
+                        <li><strong>Waktu Evaluasi:</strong> Jangan ubah pengaturan iklan sebelum berjalan minimal 3 hari agar sistem Meta selesai belajar.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Iklan Ditolak / Reject)</h4>
+                    <ul>
+                        <li><strong>Bahasa Terlalu Menjanjikan:</strong> Hindari klaim berlebihan seperti "Dijamin Kaya dalam 1 Minggu". Gunakan bahasa edukatif dan objektif.</li>
+                        <li><strong>Halaman Error:</strong> Pastikan tautan tombol WhatsApp atau situs web tujuan aktif dan bisa dibuka dengan lancar lewat HP.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bagian Video Panduan Resmi -->
             <div class="video-section">
-                <h4>📱 Video Panduan Resmi: Cara Beriklan Efektif di Meta Ads Lewat HP[cite: 3, 4]</h4>
+                <h4>📱 Video Panduan Resmi: Cara Beriklan Efektif di Meta Ads Lewat HP</h4>
                 <div class="iframe-container">
                     <iframe src="https://www.youtube.com/embed/ZWwSUBB9HrU" allowfullscreen></iframe>
                 </div>
@@ -252,9 +314,27 @@
                 </div>
             </div>
 
-            <!-- Bagian Video Panduan Resmi (Sumber 3, 4) -->
+            <!-- Bagian Tambahan: Benchmarks & Troubleshooting untuk Google Ads -->
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Tingkat Klik (CTR):</strong> Iklan penelusuran (Search) yang baik biasanya memiliki rasio klik di atas 4% hingga 7%.</li>
+                        <li><strong>Fokus Niat Beli:</strong> Pastikan menggunakan tipe pencocokan kata kunci frasa atau persis agar anggaran tidak terkuras oleh klik pencarian yang tidak relevan.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Anggaran Cepat Habis Tanpa Hasil)</h4>
+                    <ul>
+                        <li><strong>Kurang Kata Kunci Negatif:</strong> Cek laporan kata kunci pencarian, tambahkan kata yang tidak relevan ke daftar pengecualian (Negative Keywords).</li>
+                        <li><strong>Situs Terlalu Lambat:</strong> Optimalkan ukuran gambar di website utama Anda agar kecepatan muat halamannya di bawah 2 detik.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bagian Video Panduan Resmi -->
             <div class="video-section">
-                <h4>🔍 Video Panduan Resmi: Cara Menjalankan Google Ads Lewat HP[cite: 3, 4]</h4>
+                <h4>🔍 Video Panduan Resmi: Cara Menjalankan Google Ads Lewat HP</h4>
                 <div class="iframe-container">
                     <iframe src="https://www.youtube.com/embed/_iswCWy1v8Q" allowfullscreen></iframe>
                 </div>
