@@ -73,7 +73,6 @@
             border-radius: 4px;
             box-shadow: 0 0 6px #38bdf8;
         }
-        /* Variations for Manies / different bangboos */
         .creature-2 {
             background: radial-gradient(circle at 30% 30%, #f472b6, #db2777);
             box-shadow: 0 0 15px rgba(244, 114, 182, 0.6), inset -5px -5px 10px rgba(0,0,0,0.4);
@@ -148,7 +147,7 @@
         }
         .action-btn-link:hover { background: #0369a1; box-shadow: 0 0 15px #38bdf8; }
 
-        /* Annotated Screenshot Mockup */
+        /* Annotated Screenshot Styles with Red Highlights */
         .screenshot-preview {
             background: #0f172a;
             color: #f8fafc;
@@ -158,29 +157,47 @@
             border: 2px solid #334155;
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
         }
-        .screenshot-preview h5 { margin: 0 0 10px 0; color: #38bdf8; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
-        .mock-ui {
-            background: #020617;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            border: 1px dashed #475569;
-            color: #cbd5e1;
+        .screenshot-preview h5 { margin: 0 0 12px 0; color: #38bdf8; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+        
+        .annotated-img-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #475569;
+            background: #000;
         }
-        .callout-circle {
-            display: inline-block;
+        .annotated-img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.85;
+            max-height: 350px;
+            object-fit: cover;
+        }
+        .red-box {
+            position: absolute;
+            border: 3px solid #ef4444;
+            background: rgba(239, 68, 68, 0.25);
+            box-shadow: 0 0 12px #ef4444;
+            border-radius: 4px;
+            animation: pulseRed 2s infinite;
+        }
+        .red-badge {
+            position: absolute;
             background: #ef4444;
             color: white;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            text-align: center;
-            line-height: 22px;
             font-weight: bold;
             font-size: 0.75rem;
-            margin-right: 6px;
-            box-shadow: 0 0 10px #ef4444;
+            padding: 2px 7px;
+            border-radius: 4px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.8);
+            z-index: 5;
+        }
+        @keyframes pulseRed {
+            0% { border-color: #ef4444; box-shadow: 0 0 4px #ef4444; }
+            50% { border-color: #f87171; box-shadow: 0 0 15px #f87171; }
+            100% { border-color: #ef4444; box-shadow: 0 0 4px #ef4444; }
         }
 
         .info-grid {
@@ -253,6 +270,80 @@
             border: none;
         }
 
+        /* Interactive ROI Calculator Styles */
+        .roi-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            border: 2px solid #38bdf8;
+            border-top: 8px solid #f472b6;
+            border-radius: 14px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            .roi-grid { grid-template-columns: 1fr; }
+        }
+        .roi-inputs label {
+            display: block;
+            margin-bottom: 6px;
+            color: #38bdf8;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .roi-inputs input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #f1f5f9;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        .roi-inputs input:focus {
+            border-color: #38bdf8;
+            outline: none;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+        }
+        .roi-results-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 2px solid #334155;
+            padding: 25px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 8px;
+        }
+        .result-row span:last-child {
+            font-weight: bold;
+            color: #38bdf8;
+        }
+        .profit-badge {
+            margin-top: 15px;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+        .status-profit { background: rgba(6, 78, 59, 0.7); border: 1px solid #059669; color: #34d399; }
+        .status-loss { background: rgba(127, 29, 29, 0.7); border: 1px solid #dc2626; color: #f87171; }
+
         .ai-helper-box {
             background: linear-gradient(135deg, #1e293b, #0369a1);
             color: white;
@@ -297,7 +388,7 @@
         }
         .chart-wrapper { width: 100%; max-height: 400px; margin-top: 20px; }
 
-        /* Floating WhatsApp Button (Bottom Right) */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -343,7 +434,7 @@
     </div>
 
     <header>
-        <h1>Buku Pintar Pemasaran Digital </h1>
+        <h1>Buku Pintar Pemasaran Digital</h1>
         <p>Panduan Sangat Terperinci, Mudah Dipahami, Khusus Pemilik Usaha</p>
     </header>
 
@@ -354,7 +445,6 @@
             <h2>1. Google Maps (Google Profil Bisnis)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
             
-            <!-- Mobile Action Priority Bar -->
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://business.google.com" target="_blank" class="action-btn-link">🚀 Buka Google Profil Bisnis</a>
@@ -380,12 +470,14 @@
                 </div>
             </div>
 
-            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <!-- Annotated Visual Screenshot with Red Highlights (Worked Example) -->
             <div class="screenshot-preview">
                 <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
-                <div class="mock-ui">
-                    <div><span class="callout-circle">1</span> [ Tombol Buat Profil Baru / Add Business ]</div>
-                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Kolom Nama Bisnis -> Masukkan Nama Toko + Kata Kunci Kota</div>
+                <div class="annotated-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Google Business Profile UI Screenshot">
+                    <!-- Red Highlight Box for Add Business Button -->
+                    <div class="red-box" style="top: 20%; left: 15%; width: 35%; height: 25%;"></div>
+                    <span class="red-badge" style="top: 15%; left: 15%;">1. Klik "Add Business" / Buat Profil</span>
                 </div>
             </div>
 
@@ -418,7 +510,6 @@
             <h2>2. Meta Ads (Iklan di Facebook & Instagram)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
             
-            <!-- Mobile Action Priority Bar -->
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://adsmanager.facebook.com" target="_blank" class="action-btn-link">🚀 Buka Meta Ads Manager</a>
@@ -444,12 +535,14 @@
                 </div>
             </div>
 
-            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <!-- Annotated Visual Screenshot with Red Highlights (Worked Example) -->
             <div class="screenshot-preview">
                 <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
-                <div class="mock-ui">
-                    <div><span class="callout-circle">1</span> [ Tombol Hijau: Buat Kampanye / Create Campaign ]</div>
-                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Tujuan: Interaksi / Pesan WhatsApp (Engagement)</div>
+                <div class="annotated-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Meta Ads Manager UI Screenshot">
+                    <!-- Red Highlight Box for Create Campaign Button -->
+                    <div class="red-box" style="top: 15%; left: 60%; width: 30%; height: 22%;"></div>
+                    <span class="red-badge" style="top: 10%; left: 60%;">1. Tombol "Create Campaign"</span>
                 </div>
             </div>
 
@@ -482,7 +575,6 @@
             <h2>3. Google Ads (Iklan Pencarian Google)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
             
-            <!-- Mobile Action Priority Bar -->
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt" target="_blank" class="action-btn-link">🚀 Buka Google Ads Dashboard</a>
@@ -508,12 +600,14 @@
                 </div>
             </div>
 
-            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <!-- Annotated Visual Screenshot with Red Highlights (Worked Example) -->
             <div class="screenshot-preview">
                 <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
-                <div class="mock-ui">
-                    <div><span class="callout-circle">1</span> [ Tombol Iklan Baru (+) / New Campaign ]</div>
-                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Sasaran: Kampanye Penelusuran (Search Network)</div>
+                <div class="annotated-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Google Ads Dashboard UI Screenshot">
+                    <!-- Red Highlight Box for New Campaign Button -->
+                    <div class="red-box" style="top: 55%; left: 10%; width: 32%; height: 24%;"></div>
+                    <span class="red-badge" style="top: 50%; left: 10%;">2. Tombol (+) New Campaign</span>
                 </div>
             </div>
 
@@ -537,6 +631,57 @@
                 <h4>🔍 Video Panduan Resmi: Cara Menjalankan Google Ads Lewat HP</h4>
                 <div class="iframe-container">
                     <iframe src="https://www.youtube.com/embed/_iswCWy1v8Q" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW FEATURE: Interactive ROI Calculator Widget -->
+        <div class="roi-card">
+            <h2>🧮 Kalkulator Estimasi ROI (Return on Investment) Iklan</h2>
+            <p>Simulasikan potensi keuntungan kampanye digital Anda sebelum mengeluarkan anggaran sebenarnya. Masukkan parameter biaya dan konversi di bawah ini:</p>
+            
+            <div class="roi-grid">
+                <div class="roi-inputs">
+                    <label for="budgetInput">Total Anggaran Iklan (Rp):</label>
+                    <input type="number" id="budgetInput" value="500000" min="50000" step="50000">
+
+                    <label for="cpcInput">Estimasi Biaya per Klik / CPC (Rp):</label>
+                    <input type="number" id="cpcInput" value="2500" min="500" step="500">
+
+                    <label for="convRateInput">Tingkat Konversi Pembelian (%):</label>
+                    <input type="number" id="convRateInput" value="2.5" min="0.1" max="100" step="0.1">
+
+                    <label for="aovInput">Nilai Rata-rata Penjualan / AOV (Rp):</label>
+                    <input type="number" id="aovInput" value="150000" min="10000" step="10000">
+                </div>
+
+                <div class="roi-results-box">
+                    <div>
+                        <h4 style="color:#38bdf8; margin-top:0; border-bottom:1px solid #334155; padding-bottom:10px;">📈 Hasil Simulasi Kampanye</h4>
+                        <div class="result-row">
+                            <span>Estimasi Total Klik:</span>
+                            <span id="resClicks">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Estimasi Total Pembeli:</span>
+                            <span id="resConversions">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Pendapatan (Omzet):</span>
+                            <span id="resRevenue">Rp 0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Keuntungan Bersih (Profit):</span>
+                            <span id="resProfit">Rp 0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Persentase ROI:</span>
+                            <span id="resRoiPercent">0%</span>
+                        </div>
+                    </div>
+                    <div id="resStatusBadge" class="profit-badge status-profit">
+                        ✅ Kampanye Diproyeksikan Untung Menguntungkan!
+                    </div>
                 </div>
             </div>
         </div>
@@ -578,7 +723,6 @@
             height = canvas.height = window.innerHeight;
         });
 
-        // Cyber particles / digital rain specs
         const particles = [];
         for (let i = 0; i < 40; i++) {
             particles.push({
@@ -592,8 +736,6 @@
 
         function drawCyberGrid() {
             ctx.clearRect(0, 0, width, height);
-            
-            // Draw subtle cyber grid lines
             ctx.strokeStyle = 'rgba(56, 189, 248, 0.04)';
             ctx.lineWidth = 1;
             let gridSize = 40;
@@ -610,7 +752,6 @@
                 ctx.stroke();
             }
 
-            // Draw & move particles
             particles.forEach(p => {
                 ctx.fillStyle = p.color;
                 ctx.shadowBlur = 8;
@@ -619,13 +760,12 @@
                 p.y += p.speedY;
                 if (p.y > height) p.y = 0;
             });
-            ctx.shadowBlur = 0; // reset
+            ctx.shadowBlur = 0;
             requestAnimationFrame(drawCyberGrid);
         }
         drawCyberGrid();
 
-
-        // --- 2. Living Bangboos & Manies Mouse / Scroll Tracker ---
+        // --- 2. Living Bangboos & Manies Mouse Tracker ---
         const creatures = document.querySelectorAll('.chubby-creature');
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -633,31 +773,76 @@
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
-            creatures.forEach((creature, idx) => {
+            creatures.forEach((creature) => {
                 const speed = parseFloat(creature.getAttribute('data-speed')) || 0.03;
                 const rect = creature.getBoundingClientRect();
                 const cx = rect.left + rect.width / 2;
                 const cy = rect.top + rect.height / 2;
-                
                 const dx = (mouseX - cx) * speed * 2;
                 const dy = (mouseY - cy) * speed * 2;
-                
                 creature.style.transform = `translate(${dx}px, ${dy}px)`;
             });
         });
 
-        // Make them react when scrolling (they bounce or change expressions dynamically!)
         window.addEventListener('scroll', () => {
             let scrollY = window.scrollY;
             creatures.forEach((creature, idx) => {
-                let offset = Math.sin(scrollY * 0.01 + idx) * 15;
-                creature.style.filter = `hue-rotate(${scrollY % 360}deg)`;
+                creature.style.filter = `hue-rotate(${(scrollY + idx * 45) % 360}deg)`;
             });
         });
 
+        // --- 3. Interactive ROI Calculator Logic ---
+        const budgetInput = document.getElementById('budgetInput');
+        const cpcInput = document.getElementById('cpcInput');
+        const convRateInput = document.getElementById('convRateInput');
+        const aovInput = document.getElementById('aovInput');
 
-        // --- 3. Data Visualization Logic ---
+        const resClicks = document.getElementById('resClicks');
+        const resConversions = document.getElementById('resConversions');
+        const resRevenue = document.getElementById('resRevenue');
+        const resProfit = document.getElementById('resProfit');
+        const resRoiPercent = document.getElementById('resRoiPercent');
+        const resStatusBadge = document.getElementById('resStatusBadge');
+
+        function formatIDR(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(amount);
+        }
+
+        function calculateROI() {
+            const budget = parseFloat(budgetInput.value) || 0;
+            const cpc = parseFloat(cpcInput.value) || 1;
+            const convRate = (parseFloat(convRateInput.value) || 0) / 100;
+            const aov = parseFloat(aovInput.value) || 0;
+
+            const clicks = Math.floor(budget / cpc);
+            const conversions = Math.floor(clicks * convRate);
+            const revenue = conversions * aov;
+            const profit = revenue - budget;
+            const roiPercent = budget > 0 ? ((profit / budget) * 100).toFixed(1) : 0;
+
+            resClicks.innerText = clicks.toLocaleString('id-ID');
+            resConversions.innerText = conversions.toLocaleString('id-ID');
+            resRevenue.innerText = formatIDR(revenue);
+            resProfit.innerText = formatIDR(profit);
+            resRoiPercent.innerText = roiPercent + '%';
+
+            if (profit > 0) {
+                resStatusBadge.className = 'profit-badge status-profit';
+                resStatusBadge.innerText = '✅ Kampanye Diproyeksikan Menguntungkan!';
+            } else {
+                resStatusBadge.className = 'profit-badge status-loss';
+                resStatusBadge.innerText = '⚠️ Peringatan: Potensi Rugi. Sesuaikan Target atau Tingkatkan Konversi!';
+            }
+        }
+
+        [budgetInput, cpcInput, convRateInput, aovInput].forEach(input => {
+            input.addEventListener('input', calculateROI);
+        });
+
+        // Initial calculation call
+        calculateROI();
+
+        // --- 4. Data Visualization Chart.js Logic ---
         const chartCtx = document.getElementById('marketingChart').getContext('2d');
         
         setTimeout(() => {
