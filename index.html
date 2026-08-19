@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buku Pintar Digital Marketing - Panduan Lengkap Alwustho Group</title>
-    <!-- Chart.js CDN for Visualization -->
+    <!-- Chart.js for Visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -25,48 +25,284 @@
         header h1 { margin: 0; font-size: 2.8rem; font-weight: 700; }
         header p { font-size: 1.25rem; color: #d0d7de; margin-top: 12px; }
 
-        .container { max-width: 1050px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: white; border-radius: 14px; padding: 3rem 2.5rem; margin-bottom: 3rem; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border-top: 8px solid #2980b9; }
-        
+        .container {
+            max-width: 1050px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-top: 8px solid #2980b9;
+        }
         h2 { color: #1b365d; border-bottom: 3px solid #ecf0f1; padding-bottom: 15px; margin-top: 0; font-size: 2rem; }
         h3 { color: #2980b9; font-size: 1.4rem; margin-top: 2rem; }
         
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 25px; }
-        @media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } }
-        
-        .box-section { background-color: #fdfefe; border: 2px solid #e2e8f0; padding: 25px; border-radius: 10px; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        .box-section {
+            background-color: #fdfefe;
+            border: 2px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 10px;
+        }
         .box-section h4 { margin-top: 0; color: #1b365d; font-size: 1.2rem; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; }
 
-        .extra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 25px; }
-        .benchmark-box { background-color: #f0fdf4; border: 2px solid #86efac; padding: 25px; border-radius: 10px; }
-        .trouble-box { background-color: #fef2f2; border: 2px solid #fca5a5; padding: 25px; border-radius: 10px; }
+        .extra-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            .extra-grid { grid-template-columns: 1fr; }
+        }
+        .benchmark-box {
+            background-color: #f0fdf4;
+            border: 2px solid #86efac;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .benchmark-box h4 { margin-top: 0; color: #166534; font-size: 1.2rem; border-bottom: 2px solid #bbf7d0; padding-bottom: 10px; }
 
-        .video-section { margin-top: 30px; background: #f8fafc; padding: 25px; border-radius: 10px; border: 2px dashed #3498db; text-align: center; }
-        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-top: 15px; }
-        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .trouble-box {
+            background-color: #fef2f2;
+            border: 2px solid #fca5a5;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .trouble-box h4 { margin-top: 0; color: #991b1b; font-size: 1.2rem; border-bottom: 2px solid #fecaca; padding-bottom: 10px; }
 
-        /* Data Section Styles */
-        .live-data-container { background: #ffffff; border: 3px solid #2c3e50; padding: 30px; margin: 30px auto; max-width: 1050px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+        ul, ol { padding-left: 25px; margin: 15px 0; }
+        li { margin-bottom: 12px; font-size: 1.05rem; }
+
+        .video-section {
+            margin-top: 30px;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px dashed #3498db;
+            text-align: center;
+        }
+        .video-section h4 { margin-top: 0; color: #1b365d; font-size: 1.2rem; }
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        .ai-helper-box {
+            background: linear-gradient(135deg, #1b365d, #2980b9);
+            color: white;
+            text-align: center;
+            padding: 3.5rem 2rem;
+            border-radius: 14px;
+            margin-top: 3rem;
+            box-shadow: 0 8px 25px rgba(27, 54, 93, 0.3);
+        }
+        .ai-helper-box h3 { margin-top: 0; font-size: 2.2rem; color: white; }
+        .ai-helper-box p { font-size: 1.15rem; color: #ecf0f1; max-width: 800px; margin: 15px auto; }
+        .ai-btn {
+            background-color: #ffffff;
+            color: #1b365d;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .ai-btn:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-3px);
+        }
+
+        /* NEW: Live Data Section Styles */
+        .live-data-container {
+            background: #ffffff;
+            border: 3px solid #2c3e50;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1050px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
         .chart-wrapper { width: 100%; max-height: 400px; margin-top: 20px; }
-
-        .ai-helper-box { background: linear-gradient(135deg, #1b365d, #2980b9); color: white; text-align: center; padding: 3.5rem 2rem; border-radius: 14px; margin-top: 3rem; }
-        .ai-btn { background-color: #ffffff; color: #1b365d; padding: 18px 40px; text-decoration: none; border-radius: 35px; font-weight: bold; display: inline-block; margin-top: 25px; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Buku Pintar Pemasaran Digital</h1>
-        <p>Panduan untuk Pemilik Usaha</p>
+        <h1>Buku Pintar Pemasaran Digital (Digital Marketing)</h1>
+        <p>Panduan Sangat Terperinci, Mudah Dipahami, Khusus Pemilik Usaha & Senior</p>
     </header>
 
     <div class="container">
-        <!-- Content Modules (1, 2, 3) remain here as defined previously -->
-        <!-- [Insert your existing Card components here] -->
-    </div>
+        <!-- MODUL 1: GOOGLE MAPS -->
+        <div class="card">
+            <h2>1. Google Maps (Google Profil Bisnis)</h2>
+            <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
+                    <ul>
+                        <li><strong>Usia Target:</strong> 23 sampai 45 tahun (Ibu rumah tangga modern, karyawati mapan, guru, dan tenaga medis).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan stabil dari kisaran UMR perkotaan hingga 3 kali lipat UMR (Rp4.800.000 s.d. Rp18.000.000+ per bulan).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Sangat mementingkan kualitas bahan pakaian yang adem, jahitan rapi, dan mencari toko fisik terdekat yang terbukti jujur serta memiliki ulasan bagus dari pembeli lain sebelum mereka memutuskan datang.</li>
+                    </ul>
+                </div>
+                <div class="box-section">
+                    <h4>📋 Panduan Langkah demi Langkah (Sangat Rinci & Mudah)</h4>
+                    <ol>
+                        <li><strong>Mendaftarkan Toko di Peta:</strong> Buka situs Google Profil Bisnis, masukkan nama toko, alamat lengkap, dan titik lokasi yang akurat agar kurir atau pembeli tidak tersesat.</li>
+                        <li><strong>Menulis Nama Usaha dengan Jelas:</strong> Tambahkan keterangan produk pada nama profil, contohnya: <em>Toko Aflaha Hijab Syar'i & Perlengkapan Muslim [Nama Kota Anda]</em> agar mudah ditemukan di mesin pencari.</li>
+                        <li><strong>Melengkapi Informasi Penting:</strong> Tuliskan jam buka toko dengan jujur, nomor WhatsApp aktif untuk pemesanan online, serta unggah minimal 15 foto produk terbaik yang terang dan jelas.</li>
+                        <li><strong>Mengajak Pembeli Memberi Ulasan:</strong> Berikan pelayanan yang ramah dan mintakan ulasan bintang 5 kepada pelanggan yang datang ke toko untuk menaikkan kepercayaan orang lain.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Waktu Verifikasi:</strong> Toko biasanya muncul di peta dalam 3 hingga 7 hari kerja setelah verifikasi pos/video sukses.</li>
+                        <li><strong>Target Hasil:</strong> Toko baru yang konsisten mendapat ulasan bintang 5 akan melihat peningkatan pencarian lokal sebanyak 30% dalam bulan pertama.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Akun Ditangguhkan/Suspend)</h4>
+                    <ul>
+                        <li><strong>Nama Toko Terlalu Banyak Kata Kunci:</strong> Hindari spam kata kunci berlebih pada nama (misal: "Jual Hijab Murah Bagus Jakarta"), gunakan nama asli merek Anda.</li>
+                        <li><strong>Titik GPS Salah:</strong> Pastikan pin koordinat pas di depan pintu masuk ruko/toko fisik Anda.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>📍 Video Panduan Resmi: Cara Mengatur Google Maps untuk Toko Anda</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/UFjqS-ldQGs" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
 
-    <!-- NEW: Live Data Section moved to the bottom -->
-    <div class="container">
+        <!-- MODUL 2: META ADS -->
+        <div class="card">
+            <h2>2. Meta Ads (Iklan di Facebook & Instagram)</h2>
+            <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
+                    <ul>
+                        <li><strong>Usia Target:</strong> 28 sampai 50 tahun (Pekerja kantoran, wirausahawan, atau orang tua yang ingin mendaftarkan anggota keluarganya).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan Rp5.000.000 hingga Rp22.000.000+ per bulan (Mulai dari kelas UMR hingga kalangan menengah mapan).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Sering menggunakan Facebook dan Instagram, sangat memperhatikan masa depan karier, dan bersedia menyisihkan uang untuk mengikuti pelatihan resmi yang bermutu tinggi.</li>
+                    </ul>
+                </div>
+                <div class="box-section">
+                    <h4>📋 Panduan Langkah demi Langkah (Sangat Rinci & Mudah)</h4>
+                    <ol>
+                        <li><strong>Menyiapkan Halaman Bisnis:</strong> Buat Halaman khusus di Facebook dan akun Instagram khusus untuk usaha atau lembaga Anda, lalu hubungkan keduanya.</li>
+                        <li><strong>Menentukan Siapa yang Melihat Iklan:</strong> Atur target pemirsa berdasarkan umur matang, wilayah kota tempat tinggal, dan ketertarikan mereka terhadap kemajuan teknologi atau pendidikan.</li>
+                        <li><strong>Membuat Bahan Iklan yang Menarik:</strong> Buat video pendek berdurasi 15 sampai 30 detik yang memperlihatkan contoh hasil nyata atau testimoni orang yang sudah sukses belajar di tempat Anda.</li>
+                        <li><strong>Menguji dan Mengevaluasi Biaya:</strong> Jalankan iklan dengan modal kecil terlebih dahulu, amati hasilnya selama 3 hari, lalu matikan iklan yang kurang mendatangkan hasil agar uang promosi tidak terbuang percuma.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Biaya per Pesan (Cost per Chat):</strong> Dengan target wilayah kota besar, patokan wajar biaya per pesan WhatsApp masuk berkisar antara Rp10.000 s.d. Rp30.000.</li>
+                        <li><strong>Waktu Evaluasi:</strong> Jangan ubah pengaturan iklan sebelum berjalan minimal 3 hari agar sistem Meta selesai belajar.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Iklan Ditolak / Reject)</h4>
+                    <ul>
+                        <li><strong>Bahasa Terlalu Menjanjikan:</strong> Hindari klaim berlebihan seperti "Dijamin Kaya dalam 1 Minggu". Gunakan bahasa edukatif dan objektif.</li>
+                        <li><strong>Halaman Error:</strong> Pastikan tautan tombol WhatsApp atau situs web tujuan aktif dan bisa dibuka dengan lancar lewat HP.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>📱 Video Panduan Resmi: Cara Beriklan Efektif di Meta Ads Lewat HP</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/ZWwSUBB9HrU" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODUL 3: GOOGLE ADS -->
+        <div class="card">
+            <h2>3. Google Ads (Iklan Pencarian Google)</h2>
+            <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR Mapan)</h4>
+                    <ul>
+                        <li><strong>Usia Target:</strong> 32 sampai 55 tahun (Pemilik rumah baru, pengembang perumahan, investor, atau pengurus yayasan pendidikan).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan mapan dari Rp7.000.000 sampai Rp30.000.000+ per bulan (Memiliki anggaran pribadi atau instansi yang besar).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Langsung mengetik kata kunci tertentu di mesin pencari Google saat mereka benar-benar berniat membeli atau memasang alat canggih di bangunan mereka.</li>
+                    </ul>
+                </div>
+                <div class="box-section">
+                    <h4>📋 Panduan Langkah demi Langkah (Sangat Rinci & Mudah)</h4>
+                    <ol>
+                        <li><strong>Memilih Kata Kunci yang Tepat:</strong> Gunakan alat riset Google untuk mencari kata-kata yang persis diketik pembeli serius, contohnya: <em>"jasa pasang alat rumah pintar"</em>.</li>
+                        <li><strong>Menyaring Kata yang Tidak Penting:</strong> Masukkan daftar kata larangan (seperti kata "gratis" atau "cara buat sendiri") agar iklan Anda tidak diklik oleh orang yang hanya mencari hiburan atau tutorial gratisan.</li>
+                        <li><strong>Membuat Halaman Tujuan yang Cepat:</strong> Pastikan halaman situs web yang dituju saat iklan diklik dapat terbuka dengan sangat cepat (di bawah 2 detik) agar calon pembeli tidak keburu bosan.</li>
+                        <li><strong>Mengatur Waktu Penayangan Iklan:</strong> Atur agar iklan hanya muncul pada jam-jam kerja normal (misalnya pukul 08.00 pagi sampai 20.00 malam) agar anggaran iklan terserap secara efektif.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="extra-grid">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Tingkat Klik (CTR):</strong> Iklan penelusuran (Search) yang baik biasanya memiliki rasio klik di atas 4% hingga 7%.</li>
+                        <li><strong>Fokus Niat Beli:</strong> Pastikan menggunakan tipe pencocokan kata kunci frasa atau persis agar anggaran tidak terkuras oleh klik pencarian yang tidak relevan.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Anggaran Cepat Habis Tanpa Hasil)</h4>
+                    <ul>
+                        <li><strong>Kurang Kata Kunci Negatif:</strong> Cek laporan kata kunci pencarian, tambahkan kata yang tidak relevan ke daftar pengecualian (Negative Keywords).</li>
+                        <li><strong>Situs Terlalu Lambat:</strong> Optimalkan ukuran gambar di website utama Anda agar kecepatan muat halamannya di bawah 2 detik.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>🔍 Video Panduan Resmi: Cara Menjalankan Google Ads Lewat HP</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/_iswCWy1v8Q" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Live Data Section (Moved to Bottom) -->
         <div class="live-data-container">
             <h3>📈 Data & Tren Pasar Digital Saat Ini</h3>
             <p id="loading-text">Menghubungkan ke server data pemasaran global...</p>
@@ -75,13 +311,14 @@
             </div>
             <p style="margin-top:20px; font-size: 0.9rem; color: #7f8c8d;">*Data disimulasikan berdasarkan rata-rata konversi industri 2026.</p>
         </div>
-    </div>
 
-    <div class="container">
         <!-- BAGIAN BANTUAN ASISTEN AI -->
         <div class="ai-helper-box">
-            <h3>🤖 Butuh Bantuan Tambahan?</h3>
-            <a href="https://gemini.google.com" target="_blank" class="ai-btn">💬 Tanya Asisten AI Sekarang</a>
+            <h3>🤖 Butuh Bantuan Tambahan atau Ingin Bertanya?</h3>
+            <p>Jika ada penjelasan di atas yang masih membingungkan, atau jika Anda ingin dibuatkan kalimat promosi yang bagus untuk usaha Anda, silakan mengobrol langsung dengan Asisten AI secara gratis kapan saja.</p>
+            <a href="https://gemini.google.com" target="_blank" class="ai-btn">
+                💬 Tanya Asisten AI Sekarang
+            </a>
         </div>
     </div>
 
@@ -110,7 +347,7 @@
                     scales: { y: { beginAtZero: true, max: 100 } }
                 }
             });
-        }, 1500); // Simulated delay
+        }, 1500); 
     </script>
 </body>
 </html>
