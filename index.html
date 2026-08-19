@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            font-size: 1.05rem;
+            font-size: 1.1rem; /* Sedikit diperbesar untuk kenyamanan mata senior */
             position: relative;
             overflow-x: hidden;
         }
@@ -119,11 +119,82 @@
         h2 { color: #38bdf8; border-bottom: 3px solid rgba(56, 189, 248, 0.2); padding-bottom: 15px; margin-top: 0; font-size: 2rem; }
         h3 { color: #f472b6; font-size: 1.4rem; margin-top: 2rem; }
         
-        /* Mobile-First Action Banner */
+        /* FEATURE 3: Text-to-Speech Audio Button (Extra Large & Clear) */
+        .audio-tts-btn {
+            background: #0284c7;
+            color: white;
+            border: 2px solid #38bdf8;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            transition: all 0.2s;
+        }
+        .audio-tts-btn:hover {
+            background: #0369a1;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #38bdf8;
+        }
+
+        /* FEATURE 2: Anti-Jargon Glossary Box */
+        .anti-jargon-box {
+            background: rgba(15, 118, 110, 0.25);
+            border: 2px dashed #14b8a6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .anti-jargon-box h4 {
+            margin-top: 0;
+            color: #2dd4bf;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .anti-jargon-box p {
+            margin: 8px 0 0 0;
+            font-size: 1rem;
+            color: #ccfbf1;
+        }
+
+        /* FEATURE 4: Template Instan ROI Buttons */
+        .preset-btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .preset-btn {
+            background: #475569;
+            color: white;
+            border: 2px solid #64748b;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .preset-btn:hover {
+            background: #334155;
+            border-color: #f472b6;
+            color: #f472b6;
+            transform: translateY(-2px);
+        }
+
+        /* FEATURE 5: Large Touch Targets & High Contrast Action Buttons */
         .action-banner {
             background: rgba(3, 105, 161, 0.3);
             border: 2px solid #0284c7;
-            padding: 15px 20px;
+            padding: 18px 22px;
             border-radius: 10px;
             margin: 20px 0;
             display: flex;
@@ -132,20 +203,21 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-        .action-banner p { margin: 0; font-weight: 650; color: #7dd3fc; font-size: 0.95rem; }
+        .action-banner p { margin: 0; font-weight: 700; color: #7dd3fc; font-size: 1.05rem; }
         .action-btn-link {
             background: #0284c7;
             color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 14px 24px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             transition: all 0.2s;
             white-space: nowrap;
-            box-shadow: 0 0 10px rgba(2, 132, 199, 0.5);
+            box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
+            display: inline-block;
         }
-        .action-btn-link:hover { background: #0369a1; box-shadow: 0 0 15px #38bdf8; }
+        .action-btn-link:hover { background: #0369a1; box-shadow: 0 0 20px #38bdf8; }
 
         /* Annotated Screenshot Styles with Real Online Images */
         .screenshot-preview {
@@ -157,7 +229,7 @@
             border: 2px solid #334155;
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
         }
-        .screenshot-preview h5 { margin: 0 0 12px 0; color: #38bdf8; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+        .screenshot-preview h5 { margin: 0 0 12px 0; color: #38bdf8; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
         
         .annotated-img-container {
             position: relative;
@@ -182,9 +254,9 @@
             position: absolute;
             background: rgba(239, 68, 68, 0.95);
             color: white;
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: bold;
             box-shadow: 0 0 10px #ef4444;
             display: flex;
@@ -197,12 +269,12 @@
             background: #ef4444;
             color: white;
             border-radius: 50%;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             text-align: center;
-            line-height: 22px;
+            line-height: 24px;
             font-weight: bold;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             margin-right: 6px;
             box-shadow: 0 0 10px #ef4444;
         }
@@ -212,7 +284,7 @@
             padding: 12px 15px;
             border-radius: 6px;
             font-family: monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border: 1px dashed #475569;
             color: #cbd5e1;
         }
@@ -233,7 +305,7 @@
             padding: 25px;
             border-radius: 10px;
         }
-        .box-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.2rem; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .box-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.25rem; border-bottom: 2px solid #334155; padding-bottom: 10px; }
 
         .extra-grid {
             display: grid;
@@ -250,7 +322,7 @@
             padding: 25px;
             border-radius: 10px;
         }
-        .benchmark-box h4 { margin-top: 0; color: #34d399; font-size: 1.2rem; border-bottom: 2px solid #065f46; padding-bottom: 10px; }
+        .benchmark-box h4 { margin-top: 0; color: #34d399; font-size: 1.25rem; border-bottom: 2px solid #065f46; padding-bottom: 10px; }
 
         .trouble-box {
             background-color: rgba(127, 29, 29, 0.4);
@@ -258,10 +330,10 @@
             padding: 25px;
             border-radius: 10px;
         }
-        .trouble-box h4 { margin-top: 0; color: #f87171; font-size: 1.2rem; border-bottom: 2px solid #991b1b; padding-bottom: 10px; }
+        .trouble-box h4 { margin-top: 0; color: #f87171; font-size: 1.25rem; border-bottom: 2px solid #991b1b; padding-bottom: 10px; }
 
         ul, ol { padding-left: 25px; margin: 15px 0; color: #cbd5e1; }
-        li { margin-bottom: 12px; font-size: 1.05rem; }
+        li { margin-bottom: 12px; font-size: 1.1rem; }
 
         .video-section {
             margin-top: 30px;
@@ -271,7 +343,7 @@
             border: 2px dashed #0284c7;
             text-align: center;
         }
-        .video-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.2rem; }
+        .video-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.25rem; }
         .iframe-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -298,7 +370,7 @@
             box-shadow: 0 8px 25px rgba(3, 105, 161, 0.4);
         }
         .ai-helper-box h3 { margin-top: 0; font-size: 2.2rem; color: white; }
-        .ai-helper-box p { font-size: 1.15rem; color: #94a3b8; max-width: 800px; margin: 15px auto; }
+        .ai-helper-box p { font-size: 1.2rem; color: #94a3b8; max-width: 800px; margin: 15px auto; }
         .ai-btn {
             background-color: #ffffff;
             color: #0f172a;
@@ -331,22 +403,22 @@
         }
         .chart-wrapper { width: 100%; max-height: 400px; margin-top: 20px; }
 
-        /* Floating WhatsApp Button (Bottom Right) */
+        /* Floating WhatsApp Button (Bottom Right) - Extra Large & Pulsing */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
             right: 25px;
             background: #25d366;
             color: white;
-            padding: 14px 24px;
+            padding: 16px 26px;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.05rem;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            font-size: 1.15rem;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
             z-index: 9999;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: waPulse 2s infinite;
@@ -354,11 +426,11 @@
         .whatsapp-float:hover {
             background: #22bf5b;
             transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.9);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.9);
         }
         @keyframes waPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
     </style>
@@ -377,20 +449,35 @@
     </div>
 
     <header>
-        <h1>Buku Pintar Pemasaran Digital </h1>
+        <h1>Buku Pintar Pemasaran Digital</h1>
         <p>Panduan Sangat Terperinci, Mudah Dipahami, Khusus Pemilik Usaha</p>
     </header>
 
     <div class="container">
         
         <!-- MODUL 1: GOOGLE MAPS -->
-        <div class="card">
+        <div class="card" id="modul1-card">
             <h2>1. Google Maps (Google Profil Bisnis)</h2>
-            <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
+            
+            <!-- FEATURE 3: Tombol Audio Text-to-Speech -->
+            <button class="audio-tts-btn" onclick="speakText('modul1-title', 'modul1-desc')">
+                🔊 Dengarkan Penjelasan Ini
+            </button>
+            <p id="modul1-title" style="display:none;">Modul satu. Google Maps atau Google Profil Bisnis.</p>
+
+            <div id="modul1-desc">
+                <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
+            </div>
             
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://business.google.com" target="_blank" class="action-btn-link">🚀 Buka Google Profil Bisnis</a>
+            </div>
+
+            <!-- FEATURE 2: Glosarium Anti-Jargon -->
+            <div class="anti-jargon-box">
+                <h4>📖 Bahasa Sehari-hari (Anti-Jargon)</h4>
+                <p><strong>Verifikasi Peta:</strong> Proses konfirmasi dari pihak Google untuk memastikan bahwa toko fisik Anda benar-benar ada di alamat tersebut, agar tidak ada orang usil yang memalsukan lokasi toko Anda.</p>
             </div>
 
             <div class="info-grid">
@@ -456,13 +543,28 @@
         </div>
 
         <!-- MODUL 2: META ADS -->
-        <div class="card">
+        <div class="card" id="modul2-card">
             <h2>2. Meta Ads (Iklan di Facebook & Instagram)</h2>
-            <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
+            
+            <!-- FEATURE 3: Tombol Audio Text-to-Speech -->
+            <button class="audio-tts-btn" onclick="speakText('modul2-title', 'modul2-desc')">
+                🔊 Dengarkan Penjelasan Ini
+            </button>
+            <p id="modul2-title" style="display:none;">Modul dua. Meta Ads atau iklan di Facebook dan Instagram.</p>
+
+            <div id="modul2-desc">
+                <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
+            </div>
             
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://adsmanager.facebook.com" target="_blank" class="action-btn-link">🚀 Buka Meta Ads Manager</a>
+            </div>
+
+            <!-- FEATURE 2: Glosarium Anti-Jargon -->
+            <div class="anti-jargon-box">
+                <h4>📖 Bahasa Sehari-hari (Anti-Jargon)</h4>
+                <p><strong>CPC (Biaya per Klik):</strong> Uang kecil yang Anda bayarkan ke Facebook atau Google setiap kali ada calon pembeli yang benar-benar menekan tombol atau iklan Anda.</p>
             </div>
 
             <div class="info-grid">
@@ -528,13 +630,28 @@
         </div>
 
         <!-- MODUL 3: GOOGLE ADS -->
-        <div class="card">
+        <div class="card" id="modul3-card">
             <h2>3. Google Ads (Iklan Pencarian Google)</h2>
-            <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
+            
+            <!-- FEATURE 3: Tombol Audio Text-to-Speech -->
+            <button class="audio-tts-btn" onclick="speakText('modul3-title', 'modul3-desc')">
+                🔊 Dengarkan Penjelasan Ini
+            </button>
+            <p id="modul3-title" style="display:none;">Modul tiga. Google Ads atau iklan pencarian Google.</p>
+
+            <div id="modul3-desc">
+                <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
+            </div>
             
             <div class="action-banner">
                 <p>⚡ Akses Cepat Pengguna HP:</p>
                 <a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt" target="_blank" class="action-btn-link">🚀 Buka Google Ads Dashboard</a>
+            </div>
+
+            <!-- FEATURE 2: Glosarium Anti-Jargon -->
+            <div class="anti-jargon-box">
+                <h4>📖 Bahasa Sehari-hari (Anti-Jargon)</h4>
+                <p><strong>Kata Kunci (Keywords):</strong> Kalimat atau kata spesifik yang diketik seseorang di Google saat mereka sedang mencari barang atau jasa yang Anda tawarkan.</p>
             </div>
 
             <div class="info-grid">
@@ -604,30 +721,40 @@
             <h2>🧮 Kalkulator Interaktif ROI (Return on Investment)</h2>
             <p>Simulasikan potensi keuntungan kampanye iklan digital usaha Anda secara real-time sebelum mengeluarkan anggaran nyata.</p>
             
+            <!-- FEATURE 4: Template Instan pada Kalkulator ROI -->
+            <div style="margin: 20px 0;">
+                <p style="font-weight: 750; color: #38bdf8; margin-bottom: 10px;">⚡ Pilih Contoh Usaha Instan (Klik untuk Isi Otomatis):</p>
+                <div class="preset-btn-group">
+                    <button class="preset-btn" onclick="loadTemplate('aflaha')">👗 Contoh Aflaha (Fashion)</button>
+                    <button class="preset-btn" onclick="loadTemplate('elfan')">📚 Contoh Elfan (Akademi)</button>
+                    <button class="preset-btn" onclick="loadTemplate('alwustho')">🛠️ Contoh Al Wustho (IoT)</button>
+                </div>
+            </div>
+
             <div class="info-grid">
                 <div class="box-section">
                     <h4>📥 Masukkan Parameter Kampanye</h4>
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 0.95rem; color: #cbd5e1; margin-bottom: 5px;">Total Anggaran Iklan (Rp):</label>
-                        <input type="number" id="roiBudget" value="1000000" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px;" oninput="calculateROI()">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 5px;">Total Anggaran Iklan (Rp):</label>
+                        <input type="number" id="roiBudget" value="1000000" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px; font-size: 1rem;" oninput="calculateROI()">
                     </div>
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 0.95rem; color: #cbd5e1; margin-bottom: 5px;">Estimasi Biaya per Klik / CPC (Rp):</label>
-                        <input type="number" id="roiCPC" value="3000" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px;" oninput="calculateROI()">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 5px;">Estimasi Biaya per Klik / CPC (Rp):</label>
+                        <input type="number" id="roiCPC" value="3000" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px; font-size: 1rem;" oninput="calculateROI()">
                     </div>
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 0.95rem; color: #cbd5e1; margin-bottom: 5px;">Tingkat Konversi / Conversion Rate (%):</label>
-                        <input type="number" id="roiCR" value="2.5" step="0.1" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px;" oninput="calculateROI()">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 5px;">Tingkat Konversi / Conversion Rate (%):</label>
+                        <input type="number" id="roiCR" value="2.5" step="0.1" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px; font-size: 1rem;" oninput="calculateROI()">
                     </div>
                     <div style="margin-bottom: 5px;">
-                        <label style="display: block; font-size: 0.95rem; color: #cbd5e1; margin-bottom: 5px;">Keuntungan Bersih per Penjualan (Rp):</label>
-                        <input type="number" id="roiProfit" value="50000" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px;" oninput="calculateROI()">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 5px;">Keuntungan Bersih per Penjualan (Rp):</label>
+                        <input type="number" id="roiProfit" value="50000" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 6px; font-size: 1rem;" oninput="calculateROI()">
                     </div>
                 </div>
 
                 <div class="benchmark-box" style="display: flex; flex-direction: column; justify-content: space-between;">
                     <h4>📊 Hasil Simulasi Proyeksi</h4>
-                    <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 10px;">
+                    <div style="font-size: 1.1rem; display: flex; flex-direction: column; gap: 10px;">
                         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
                             <span>Estimasi Total Klik:</span>
                             <strong id="resClicks" style="color: #38bdf8;">0</strong>
@@ -649,7 +776,7 @@
                             <strong id="resROI" style="color: #f472b6;">0%</strong>
                         </div>
                     </div>
-                    <div id="roiStatus" style="margin-top: 15px; padding: 10px; border-radius: 6px; text-align: center; font-weight: bold; background: rgba(5, 150, 105, 0.3); border: 1px solid #059669; color: #34d399;">
+                    <div id="roiStatus" style="margin-top: 15px; padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; background: rgba(5, 150, 105, 0.3); border: 1px solid #059669; color: #34d399;">
                         Status: Kampanye Berpotensi Untung 🚀
                     </div>
                 </div>
@@ -663,7 +790,7 @@
             <div class="chart-wrapper">
                 <canvas id="marketingChart"></canvas>
             </div>
-            <p style="margin-top:20px; font-size: 0.9rem; color: #94a3b8;">*Data disimulasikan berdasarkan rata-rata konversi industri 2026.</p>
+            <p style="margin-top:20px; font-size: 0.95rem; color: #94a3b8;">*Data disimulasikan berdasarkan rata-rata konversi industri 2026.</p>
         </div>
 
         <!-- BAGIAN BANTUAN ASISTEN AI -->
@@ -676,12 +803,53 @@
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Floating Button (Extra Large & Touch Friendly) -->
     <a href="https://wa.me/6285102148965?text=Halo%20saya%20ingin%20konsultasi%20digital%20marketing%20dari%20website" class="whatsapp-float" target="_blank">
         <span>💬</span> Konsultasi via Whatsapp
     </a>
 
     <script>
+        // --- FEATURE 3: Text-to-Speech SpeechSynthesis API Handler ---
+        function speakText(titleId, descId) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Menghentikan suara sebelumnya jika ada
+                const title = document.getElementById(titleId).innerText;
+                const desc = document.getElementById(descId).innerText;
+                const utterance = new SpeechSynthesisUtterance(title + ". " + desc);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.95; // Sedikit lebih lambat agar mudah dicerna oleh lansia
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Maaf, fitur suara otomatis tidak didukung di browser perangkat ini.');
+            }
+        }
+
+        // --- FEATURE 4: ROI Calculator Preset Template Loader ---
+        function loadTemplate(type) {
+            const budgetInput = document.getElementById('roiBudget');
+            const cpcInput = document.getElementById('roiCPC');
+            const crInput = document.getElementById('roiCR');
+            const profitInput = document.getElementById('roiProfit');
+
+            if (type === 'aflaha') {
+                budgetInput.value = 1500000;
+                cpcInput.value = 2500;
+                crInput.value = 3.0;
+                profitInput.value = 75000;
+            } else if (type === 'elfan') {
+                budgetInput.value = 3000000;
+                cpcInput.value = 5000;
+                crInput.value = 2.0;
+                profitInput.value = 250000;
+            } else if (type === 'alwustho') {
+                budgetInput.value = 5000000;
+                cpcInput.value = 8000;
+                crInput.value = 1.5;
+                profitInput.value = 500000;
+            }
+            calculateROI();
+        }
+
         // --- 1. Cyberpunk Neon Background Canvas Animation ---
         const canvas = document.getElementById('cyber-canvas');
         const ctx = canvas.getContext('2d');
