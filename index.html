@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Pintar Digital Marketing - (Alwustho Group 2026)</title>
+    <title>Buku Pintar Digital Marketing - Edisi Live API & Sangat Rinci (Alwustho Group 2026)</title>
     <!-- Chart.js for Visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -12,7 +12,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
+            background-color: #0f172a; /* Cyberpunk Dark Base */
             color: #f1f5f9;
             margin: 0;
             padding: 0;
@@ -22,6 +22,7 @@
             overflow-x: hidden;
         }
 
+        /* Accessibility Font Resizer Bar */
         .accessibility-bar {
             background: #1e293b;
             padding: 12px 20px;
@@ -51,6 +52,7 @@
         }
         .font-btn:hover { background: #0369a1; }
 
+        /* Cyberpunk Canvas Background */
         #cyber-canvas {
             position: fixed;
             top: 0;
@@ -61,6 +63,7 @@
             pointer-events: none;
         }
 
+        /* Living Chubby Bangboos & Manies Floating Layer */
         .bangboo-squad {
             position: fixed;
             top: 0;
@@ -81,6 +84,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.1s ease-out;
             animation: floatRandom 8s infinite ease-in-out alternate;
         }
         .chubby-creature::before {
@@ -89,6 +93,18 @@
             font-size: 14px;
             font-weight: bold;
             color: #fff;
+            text-shadow: 0 0 5px #ff007f;
+        }
+        .chubby-creature::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 26px;
+            width: 8px;
+            height: 14px;
+            background: #38bdf8;
+            border-radius: 4px;
+            box-shadow: 0 0 6px #38bdf8;
         }
         .creature-2 {
             background: radial-gradient(circle at 30% 30%, #f472b6, #db2777);
@@ -96,6 +112,7 @@
             animation-duration: 10s;
         }
         .creature-2::before { content: '•ω•'; color: #fff; }
+        .creature-2::after { background: #f472b6; box-shadow: 0 0 6px #f472b6; }
 
         @keyframes floatRandom {
             0% { transform: translate(0, 0) rotate(0deg); }
@@ -110,6 +127,7 @@
             padding: 4rem 1.5rem;
             border-bottom: 3px solid #38bdf8;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
         }
         header h1 { margin: 0; font-size: 2.8rem; font-weight: 700; text-shadow: 0 0 15px rgba(56, 189, 248, 0.6); }
         header p { font-size: 1.25rem; color: #94a3b8; margin-top: 15px; }
@@ -123,6 +141,7 @@
         }
         .card {
             background: rgba(30, 41, 59, 0.92);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(56, 189, 248, 0.4);
             border-radius: 16px;
             padding: 3rem 2.5rem;
@@ -131,7 +150,9 @@
             border-top: 10px solid #38bdf8;
         }
         h2 { color: #38bdf8; border-bottom: 3px solid rgba(56, 189, 248, 0.3); padding-bottom: 15px; margin-top: 0; font-size: 2rem; }
+        h3 { color: #f472b6; font-size: 1.4rem; margin-top: 2.2rem; }
         
+        /* Senior-Friendly Audio TTS Button */
         .tts-btn {
             background: #10b981;
             color: white;
@@ -141,16 +162,19 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            margin: 20px 0 30px 0;
-            width: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 12px;
+            margin: 20px 0 30px 0;
             box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+            transition: all 0.2s;
+            width: 100%;
+            justify-content: center;
+            min-height: 56px;
         }
-        .tts-btn:hover { background: #059669; }
+        .tts-btn:hover { background: #059669; box-shadow: 0 6px 25px rgba(16, 185, 129, 0.8); }
 
+        /* Anti-Jargon Glossary Box */
         .jargon-box {
             background: rgba(15, 23, 42, 0.85);
             border-left: 6px solid #f472b6;
@@ -161,6 +185,7 @@
         }
         .jargon-box strong { color: #f472b6; }
 
+        /* Mobile-First Action Banner & Large Touch Targets */
         .action-banner {
             background: rgba(3, 105, 161, 0.5);
             border: 2px solid #0284c7;
@@ -182,28 +207,187 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 18px rgba(2, 132, 199, 0.7);
+            min-height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 56px;
-            box-shadow: 0 4px 18px rgba(2, 132, 199, 0.7);
         }
-        .action-btn-link:hover { background: #0369a1; }
+        @media (min-width: 600px) {
+            .action-btn-link { width: auto; }
+        }
+        .action-btn-link:hover { background: #0369a1; box-shadow: 0 0 25px #38bdf8; }
 
-        .info-grid {
+        /* Calculator Preset Mode Buttons */
+        .preset-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .preset-btn {
+            background: #334155;
+            color: #f1f5f9;
+            border: 2px solid #475569;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.05rem;
+            flex: 1;
+            min-width: 140px;
+            min-height: 54px;
+            transition: all 0.2s;
+        }
+        .preset-btn:hover { background: #0284c7; border-color: #38bdf8; color: white; }
+
+        /* Annotated Screenshot Styles */
+        .screenshot-preview {
+            background: #0f172a;
+            color: #f8fafc;
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 30px;
+            border: 2px solid #334155;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.7);
+        }
+        .screenshot-preview h5 { margin: 0 0 15px 0; color: #38bdf8; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        
+        .annotated-img-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #ef4444;
+            box-shadow: 0 0 18px rgba(239, 68, 68, 0.5);
+            margin-bottom: 15px;
+            background: #000;
+        }
+        .annotated-img-container img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+        
+        .highlight-badge {
+            position: absolute;
+            background: rgba(239, 68, 68, 0.95);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 0 12px #ef4444;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .callout-circle {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #ef4444;
+        }
+
+        .mock-ui {
+            background: #020617;
+            padding: 16px 18px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1rem;
+            border: 1px dashed #475569;
+            color: #cbd5e1;
+        }
+
+        .info-grid, .extra-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 30px;
         }
         @media (max-width: 768px) {
-            .info-grid { grid-template-columns: 1fr; }
+            .info-grid, .extra-grid { grid-template-columns: 1fr; }
         }
 
-        .box-section { background-color: rgba(15, 23, 42, 0.75); border: 2px solid #334155; padding: 30px; border-radius: 12px; }
+        .box-section, .benchmark-box, .trouble-box {
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .box-section { background-color: rgba(15, 23, 42, 0.75); border: 2px solid #334155; }
         .box-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.35rem; border-bottom: 2px solid #334155; padding-bottom: 12px; }
+
+        .benchmark-box { background-color: rgba(6, 78, 59, 0.55); border: 2px solid #059669; }
+        .benchmark-box h4 { margin-top: 0; color: #34d399; font-size: 1.35rem; border-bottom: 2px solid #065f46; padding-bottom: 12px; }
+
+        .trouble-box { background-color: rgba(127, 29, 29, 0.55); border: 2px solid #dc2626; }
+        .trouble-box h4 { margin-top: 0; color: #f87171; font-size: 1.35rem; border-bottom: 2px solid #991b1b; padding-bottom: 12px; }
+
         ul, ol { padding-left: 28px; margin: 18px 0; color: #cbd5e1; }
         li { margin-bottom: 18px; line-height: 1.8; }
+
+        .video-section {
+            margin-top: 35px;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px dashed #0284c7;
+            text-align: center;
+        }
+        .video-section h4 { margin-top: 0; color: #38bdf8; font-size: 1.35rem; }
+        .iframe-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 18px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        .ai-helper-box {
+            background: linear-gradient(135deg, #1e293b, #0369a1);
+            color: white;
+            text-align: center;
+            padding: 4rem 2.5rem;
+            border-radius: 16px;
+            margin-top: 3.5rem;
+            border: 1px solid #38bdf8;
+            box-shadow: 0 10px 30px rgba(3, 105, 161, 0.5);
+        }
+        .ai-helper-box h3 { margin-top: 0; font-size: 2.2rem; color: white; }
+        .ai-helper-box p { font-size: 1.2rem; color: #94a3b8; max-width: 850px; margin: 18px auto; }
+        .ai-btn {
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 28px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.5);
+            min-height: 56px;
+        }
+        .ai-btn:hover { background-color: #38bdf8; color: white; box-shadow: 0 0 30px #38bdf8; }
 
         /* Live Data Section Styles */
         .live-data-container {
@@ -216,26 +400,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
         .chart-wrapper { width: 100%; max-height: 420px; margin-top: 25px; }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            padding: 18px 28px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.15rem;
-            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.7);
-            z-index: 9999;
-            min-height: 60px;
-        }
-        .whatsapp-float:hover { background: #22bf5b; transform: scale(1.05); }
 
         .api-badge {
             background: #ef4444;
@@ -254,40 +418,75 @@
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 18px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.7);
+            z-index: 9999;
+            min-height: 60px;
+            transition: all 0.3s;
+        }
+        .whatsapp-float:hover { background: #22bf5b; transform: scale(1.05); }
+
+        input[type="number"] {
+            min-height: 52px;
+            font-size: 1.15rem;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Accessibility Font Resizer Bar -->
     <div class="accessibility-bar">
         <span>🔍 Atur Ukuran Huruf:</span>
         <button class="font-btn" onclick="adjustFontSize(-1)">A- Kecil</button>
         <button class="font-btn" onclick="adjustFontSize(1)">A+ Besar</button>
     </div>
 
+    <!-- Cyberpunk Animated Background Canvas -->
     <canvas id="cyber-canvas"></canvas>
 
+    <!-- Living Chubby Bangboos & Manies Background Squad -->
     <div class="bangboo-squad" id="squad">
         <div class="chubby-creature" style="top: 15%; left: 8%;" data-speed="0.03"></div>
         <div class="chubby-creature creature-2" style="top: 45%; right: 10%;" data-speed="0.05"></div>
+        <div class="chubby-creature" style="top: 75%; left: 12%;" data-speed="0.02"></div>
+        <div class="chubby-creature creature-2" style="top: 88%; right: 15%;" data-speed="0.04"></div>
     </div>
 
     <header>
         <h1>Buku Pintar Pemasaran Digital</h1>
-        <p>Edisi Terintegrasi</p>
+        <p>Panduan Super Rinci, Sangat Panjang, Sabar, & Terpandu Khusus Pemilik Usaha Senior (Edisi Live API 2026)</p>
     </header>
 
     <div class="container">
         
+        <!-- MODUL 1: GOOGLE MAPS -->
         <div class="card" id="modul-1">
             <h2>1. Google Maps (Google Profil Bisnis)</h2>
-            <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i</p>
+            <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
             
+            <!-- TTS Audio Reader Button -->
             <button class="tts-btn" onclick="speakModule('modul-1')">
-                🔊 Dengarkan Penjelasan Modul Ini (Suara Otomatis)
+                🔊 Dengarkan Penjelasan Modul Ini (Suara Otomatis)[cite: 2]
             </button>
 
+            <!-- Anti-Jargon Glossary Box -->
             <div class="jargon-box">
-                💡 <strong>Glosarium Senior:</strong> Cara memajang toko fisik Anda di peta digital agar pembeli sekitar bisa langsung menemukan lokasi Anda tanpa tersesat.
+                💡 <strong>Glosarium Bahasa Sehari-hari:</strong> Alih-alih istilah teknis yang rumit, modul ini mengajarkan cara memajang toko fisik Anda di peta digital Google agar pembeli sekitar bisa langsung menemukan lokasi toko Anda menggunakan HP dengan sangat mudah tanpa tersesat.
             </div>
             
             <div class="action-banner">
@@ -297,25 +496,316 @@
 
             <div class="info-grid">
                 <div class="box-section">
-                    <h4>🎯 Target Pembeli</h4>
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
                     <ul>
-                        <li><strong>Usia:</strong> 23 - 45 tahun (Ibu rumah tangga & karyawati mapan).</li>
-                        <li><strong>Daya Beli:</strong> UMR hingga 3x UMR (Rp4.800.000 - Rp18.000.000+).</li>
+                        <li><strong>Usia Target:</strong> 23 sampai 45 tahun (Ibu rumah tangga modern, karyawati mapan, guru, dan tenaga medis).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan stabil dari kisaran UMR perkotaan hingga 3 kali lipat UMR (Rp4.800.000 s.d. Rp18.000.000+ per bulan).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Sangat mementingkan kualitas bahan pakaian yang adem, jahitan rapi, dan mencari toko fisik terdekat yang terbukti jujur serta memiliki ulasan bagus dari pembeli lain sebelum mereka memutuskan datang.</li>
                     </ul>
                 </div>
                 <div class="box-section">
-                    <h4>📋 Langkah Ringkas Pendaftaran</h4>
+                    <h4>📋 Panduan Langkah demi Langkah (Super Panjang, Rinci, & Sangat Sabar)</h4>
                     <ol>
-                        <li>Buka browser HP dan ketik <code>business.google.com</code>.</li>
-                        <li>Masuk menggunakan akun Gmail aktif Anda.</li>
-                        <li>Masukkan nama toko dan kategori usaha dengan benar.</li>
-                        <li>Tentukan titik GPS di peta tepat di depan pintu toko fisik Anda.</li>
+                        <li><strong>Langkah 1: Menyiapkan Perangkat dan Koneksi Internet.</strong> Pastikan baterai handphone (HP) Anda mencukupi dan terhubung ke jaringan internet (Wi-Fi atau data seluler) yang stabil agar proses pendaftaran berjalan lancar tanpa terputus di tengah jalan.</li>
+                        <li><strong>Langkah 2: Memeriksa Akun Email Utama (Gmail).</strong> Buka aplikasi Gmail di HP Anda atau ingat-ingat kembali alamat email Google beserta kata sandinya. Pastikan Anda dapat masuk (*sign-in*) karena akun ini akan menjadi kunci utama kepemilikan toko digital Anda.</li>
+                        <li><strong>Langkah 3: Membuka Aplikasi Penjelajah Web (Browser).</strong> Tekan ikon aplikasi Google Chrome atau Safari di layar utama HP Anda. Ketik alamat website resmi Google di kolom bagian atas: <code>business.google.com</code>, lalu tekan tombol "Cari" atau "Go" pada papan ketik HP Anda.</li>
+                        <li><strong>Langkah 4: Memulai Proses Pendaftaran Profil Bisnis.</strong> Setelah halaman terbuka, perhatikan tombol besar berwarna biru atau hijau yang bertuliskan **"Kelola Sekarang"** (*Manage Now*) atau **"Sign In"**. Ketuk tombol tersebut perlahan menggunakan ujung jari Anda.</li>
+                        <li><strong>Langkah 5: Memasukkan Nama Toko Anda dengan Jelas.</strong> Akan muncul kolom isian kosong. Ketik nama usaha Anda dengan benar. Sangat disarankan menuliskan nama merek diikuti jenis produk dan nama kota, contoh: <em>Toko Aflaha Hijab Syar'i Jakarta Selatan</em> agar mudah terbaca sistem pencarian.</li>
+                        <li><strong>Langkah 6: Menentukan Kategori Usaha yang Relevan.</strong> Ketik bidang usaha Anda, lalu pilih opsi dari daftar drop-down yang disediakan Google, seperti **"Toko Busana Muslim"** atau **"Butik Pakaian Wanita"**. Jangan salah memilih agar Google tidak salah merekomendasikan toko Anda.</li>
+                        <li><strong>Langkah 7: Menambahkan Lokasi Fisik Toko.</strong> Jawab pertanyaan apakah Anda ingin menambahkan lokasi yang dapat dikunjungi pelanggan dengan memilih "Ya". Masukkan alamat lengkap secara teliti: Nama Jalan, Nomor Gedung/Ruko, RT/RW, Kelurahan, Kecamatan, dan Kota tempat toko Anda berada.</li>
+                        <li><strong>Langkah 8: Menyesuaikan Pin Titik Peta GPS secara Presisi.</strong> Peta kecil akan muncul di layar. Geser peta menggunakan jari Anda hingga titik merah (*pin*) benar-benar berada tepat di atas bangunan atau pintu masuk toko fisik Anda. Langkah ini sangat krusial agar kurir dan pembeli tidak salah alamat.</li>
+                        <li><strong>Langkah 9: Mencantumkan Nomor Kontak WhatsApp Resmi.</strong> Masukkan nomor telepon genggam atau WhatsApp aktif yang selalu dipegang oleh Anda atau staf toko agar calon pembeli dapat langsung menelepon atau mengirim pesan teks saat mereka membutuhkan bantuan.</li>
+                        <li><strong>Langkah 10: Menyelesaikan Proses Verifikasi Resmi Google.</strong> Google akan meminta verifikasi keamanan guna memastikan bahwa Anda adalah pemilik sah toko tersebut. Pilih metode verifikasi yang paling mudah bagi Anda, seperti menerima kode angka via SMS, panggilan suara, atau merekam video singkat bagian depan toko Anda. Masukkan kode tersebut dengan tenang sampai muncul tanda centang hijau tanda berhasil.</li>
                     </ol>
+                </div>
+            </div>
+
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="annotated-img-container">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Google Business Profile UI Dashboard">
+                    <div class="highlight-badge" style="top: 25%; left: 10%;">
+                        <span>1</span> Tombol Tambah Bisnis
+                    </div>
+                    <div class="highlight-badge" style="top: 55%; left: 40%;">
+                        <span>2</span> Kolom Nama Bisnis + Kota
+                    </div>
+                </div>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Buat Profil Baru / Add Business ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Kolom Nama Bisnis -> Masukkan Nama Toko + Kata Kunci Kota</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 30px;">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Waktu Verifikasi:</strong> Toko biasanya muncul di peta dalam 3 hingga 7 hari kerja setelah proses verifikasi pos atau video berhasil dikonfirmasi oleh sistem Google.</li>
+                        <li><strong>Target Hasil:</strong> Toko baru yang konsisten mengunggah foto dan mendapat ulasan bintang 5 akan melihat peningkatan pencarian lokal sebanyak 30% dalam bulan pertama.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Akun Ditangguhkan/Suspend)</h4>
+                    <ul>
+                        <li><strong>Nama Toko Terlalu Banyak Kata Kunci:</strong> Hindari spam kata kunci berlebih pada nama profil. Gunakan nama asli merek Anda ditambah lokasi.</li>
+                        <li><strong>Titik GPS Salah:</strong> Pastikan pin koordinat pas di depan pintu masuk ruko/toko fisik Anda agar kurir atau pembeli tidak berputar-putar mencari lokasi.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>📍 Video Panduan Resmi: Cara Mengatur Google Maps untuk Toko Anda</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/UFjqS-ldQGs" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
 
-        <!-- LIVE API DATA SECTION -->
+        <!-- MODUL 2: META ADS -->
+        <div class="card" id="modul-2">
+            <h2>2. Meta Ads (Iklan di Facebook & Instagram)</h2>
+            <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
+            
+            <!-- TTS Audio Reader Button -->
+            <button class="tts-btn" onclick="speakModule('modul-2')">
+                🔊 Dengarkan Penjelasan Modul Ini (Suara Otomatis)[cite: 2]
+            </button>
+
+            <!-- Anti-Jargon Glossary Box -->
+            <div class="jargon-box">
+                💡 <strong>Glosarium Bahasa Sehari-hari:</strong> 
+                <ul>
+                    <li><strong>CPC (Biaya per Klik):</strong> Biaya yang Anda bayar ke platform setiap kali ada calon pembeli yang mengklik iklan Anda untuk membaca informasi lebih lanjut.</li>
+                    <li><strong>Engagement:</strong> Seberapa banyak orang yang menyukai, berkomentar, atau membagikan postingan Anda karena merasa tertarik.</li>
+                </ul>
+            </div>
+            
+            <div class="action-banner">
+                <p>⚡ Akses Cepat Pengguna HP:</p>
+                <a href="https://adsmanager.facebook.com" target="_blank" class="action-btn-link">🚀 Buka Meta Ads Manager</a>
+            </div>
+
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
+                    <ul>
+                        <li><strong>Usia Target:</strong> 28 sampai 50 tahun (Pekerja kantoran, wirausahawan, atau orang tua yang ingin mendaftarkan anggota keluarganya).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan Rp5.000.000 hingga Rp22.000.000+ per bulan (Mulai dari kelas UMR hingga kalangan menengah mapan).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Sering menggunakan Facebook dan Instagram, sangat memperhatikan masa depan karier, dan bersedia menyisihkan uang untuk mengikuti pelatihan resmi yang bermutu tinggi.</li>
+                    </ul>
+                </div>
+                <div class="box-section">
+                    <h4>📋 Panduan Langkah demi Langkah (Super Panjang, Rinci, & Sangat Sabar)</h4>
+                    <ol>
+                        <li><strong>Langkah 1: Mempersiapkan Halaman Facebook Bisnis (*Fanpage*).</strong> Buka aplikasi Facebook di HP Anda atau masuk lewat browser. Masuk ke menu profil Anda, cari ikon garis tiga di sudut kanan atas atau bawah, pilih menu **"Halaman"** (*Pages*), lalu ketuk tombol **"Buat Halaman Baru"** untuk mewakili usaha Anda secara profesional.</li>
+                        <li><strong>Langkah 2: Menghubungkan Akun Instagram Bisnis.</strong> Buka aplikasi Instagram khusus usaha Anda. Masuk ke menu profil, pilih **"Edit Profil"**, lalu hubungkan akun Instagram tersebut ke Halaman Facebook yang baru saja Anda buat agar pengoperasian iklan terintegrasi dalam satu kendali.</li>
+                        <li><strong>Langkah 3: Membuka Halaman Pengelola Iklan (*Ads Manager*).</strong> Di browser HP atau komputer Anda, ketik situs resmi <code>adsmanager.facebook.com</code>. Jika Anda diminta masuk ulang, ketik alamat email dan kata sandi akun Facebook Anda secara perlahan dan teliti.</li>
+                        <li><strong>Langkah 4: Memulai Pembuatan Kampanye Iklan Baru.</strong> Setelah dasbor pengelola iklan terbuka sempurna, cari tombol berwarna hijau di bagian kiri atas layar yang bertuliskan **"+ Buat"** (*Create*), lalu ketuk tombol tersebut dengan mantap.</li>
+                        <li><strong>Langkah 5: Memilih Tujuan Utama Iklan (*Campaign Objective*).</strong> Pilih tujuan iklan bertuliskan **"Interaksi"** atau **"Pesan"** (*Engagement / Messages*). Tujuannya agar setiap calon pembeli yang tertarik dapat langsung mengirim pesan percakapan WhatsApp ke nomor admin usaha Anda secara otomatis.</li>
+                        <li><strong>Langkah 6: Menentukan Anggaran Harian dan Batas Waktu.</strong> Masukkan anggaran promosi harian yang aman bagi keuangan usaha Anda, misalnya Rp50.000 per hari, lalu tentukan tanggal mulai tayang dan durasi penayangan selama 5 sampai 7 hari sebagai tahap uji coba awal.</li>
+                        <li><strong>Langkah 7: Mengatur Target Pemirsa dan Lokasi Geografis.</strong> Tentukan wilayah target tempat tinggal pembeli (contoh: Kota Surabaya atau wilayah Jabodetabek), tentukan rentang usia dari 28 sampai 50 tahun, serta masukkan minat pembeli seperti "Pendidikan" atau "Karier".</li>
+                        <li><strong>Langkah 8: Mengunggah Materi Iklan Berupa Video atau Foto.</strong> Unggah video pendek berdurasi 15-30 detik yang memperlihatkan penjelasan atau testimoni nyata program Anda, lalu tuliskan teks keterangan iklan yang sopan, ramah, dan mudah dipahami oleh pembeli senior sekalipun.</li>
+                        <li><strong>Langkah 9: Melakukan Pemeriksaan Akhir dan Meluncurkan Iklan.</strong> Periksa kembali seluruh pengaturan mulai dari anggaran, target, hingga materi iklan dari atas ke bawah secara teliti. Jika sudah benar, ketuk tombol **"Publikasikan"** (*Publish*). Sistem Meta akan memeriksa iklan Anda selama beberapa jam sebelum resmi ditayangkan ke publik luas.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="annotated-img-container">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Meta Ads Manager Dashboard UI">
+                    <div class="highlight-badge" style="top: 20%; left: 12%;">
+                        <span>1</span> Tombol Hijau: Buat Kampanye
+                    </div>
+                    <div class="highlight-badge" style="top: 60%; left: 35%;">
+                        <span>2</span> Pilih Tujuan: Interaksi WhatsApp
+                    </div>
+                </div>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Hijau: Buat Kampanye / Create Campaign ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Tujuan: Interaksi / Pesan WhatsApp (Engagement)</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 30px;">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Biaya per Pesan (Cost per Chat):</strong> Dengan target wilayah kota besar, patokan wajar biaya per pesan WhatsApp masuk berkisar antara Rp10.000 s.d. Rp30.000.</li>
+                        <li><strong>Waktu Evaluasi:</strong> Jangan ubah pengaturan iklan sebelum berjalan minimal 3 hari agar sistem kecerdasan buatan Meta selesai mempelajari perilaku audiens Anda.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Iklan Ditolak / Reject)</h4>
+                    <ul>
+                        <li><strong>Bahasa Terlalu Menjanjikan:</strong> Hindari klaim berlebihan seperti "Dijamin Kaya dalam 1 Minggu". Gunakan bahasa edukatif, sopan, dan objektif.</li>
+                        <li><strong>Halaman Error:</strong> Pastikan tautan tombol WhatsApp atau situs web tujuan aktif dan bisa dibuka dengan lancar lewat HP tanpa hambatan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>📱 Video Panduan Resmi: Cara Beriklan Efektif di Meta Ads Lewat HP</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/ZWwSUBB9HrU" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODUL 3: GOOGLE ADS -->
+        <div class="card" id="modul-3">
+            <h2>3. Google Ads (Iklan Pencarian Google)</h2>
+            <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
+            
+            <!-- TTS Audio Reader Button -->
+            <button class="tts-btn" onclick="speakModule('modul-3')">
+                🔊 Dengarkan Penjelasan Modul Ini (Suara Otomatis)[cite: 2]
+            </button>
+
+            <!-- Anti-Jargon Glossary Box -->
+            <div class="jargon-box">
+                💡 <strong>Glosarium Bahasa Sehari-hari:</strong> 
+                <ul>
+                    <li><strong>Conversion Rate (Tingkat Konversi):</strong> Persentase orang yang benar-benar jadi memesan atau menghubungi setelah melihat iklan Anda di hasil pencarian Google.</li>
+                    <li><strong>CTR (Click-Through Rate):</strong> Persentase orang yang tertarik mengklik tulisan iklan Anda saat muncul di halaman depan Google.</li>
+                </ul>
+            </div>
+            
+            <div class="action-banner">
+                <p>⚡ Akses Cepat Pengguna HP:</p>
+                <a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt" target="_blank" class="action-btn-link">🚀 Buka Google Ads Dashboard</a>
+            </div>
+
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR Mapan)</h4>
+                    <ul>
+                        <li><strong>Usia Target:</strong> 32 sampai 55 tahun (Pemilik rumah baru, pengembang perumahan, investor, atau pengurus yayasan pendidikan).</li>
+                        <li><strong>Kemampuan Membeli (Daya Beli):</strong> Memiliki penghasilan mapan dari Rp7.000.000 sampai Rp30.000.000+ per bulan (Memiliki anggaran pribadi atau instansi yang besar).</li>
+                        <li><strong>Kebiasaan Mereka:</strong> Langsung mengetik kata kunci tertentu di mesin pencari Google saat mereka benar-benar berniat membeli atau memasang alat canggih di bangunan mereka.</li>
+                    </ul>
+                </div>
+                <div class="box-section">
+                    <h4>📋 Panduan Langkah demi Langkah (Super Panjang, Rinci, & Sangat Sabar)</h4>
+                    <ol>
+                        <li><strong>Langkah 1: Menyiapkan Browser dan Akun Google Penjelajah.</strong> Buka aplikasi browser di HP atau komputer Anda, lalu ketik alamat website resmi Google Ads di kolom atas: <code>ads.google.com</code>.</li>
+                        <li><strong>Langkah 2: Masuk ke Dasbor Kampanye.</strong> Ketuk tombol **"Mulai Sekarang"** atau **"Sign In"** di sudut kanan halaman. Masukkan akun Gmail usaha Anda dengan memasukkan alamat email dan kata sandi secara cermat.</li>
+                        <li><strong>Langkah 3: Membuat Kampanye Iklan Baru.</strong> Pada halaman beranda dasbor Google Ads, cari ikon tanda tambah berwarna biru terang yang bertuliskan **"+ Kampanye Baru"** (*New Campaign*), lalu ketuk menggunakan ujung jari Anda.</li>
+                        <li><strong>Langkah 4: Memilih Sasaran Pemasaran yang Tepat.</strong> Pilih sasaran kampanye **"Penjualan"** (*Sales*) atau **"Prospek"** (*Leads*) agar sistem Google memfokuskan iklan Anda untuk mendatangkan peminat serius yang ingin menelepon atau mengisi data.</li>
+                        <li><strong>Langkah 5: Memilih Jenis Jaringan Iklan Berbasis Teks.</strong> Pilih jenis **"Penelusuran"** (*Search Network*) agar iklan berbentuk teks Anda langsung muncul di deretan paling atas hasil pencarian ketika calon pembeli mengetik produk yang Anda tawarkan di Google.</li>
+                        <li><strong>Langkah 6: Menentukan Kata Kunci Pencarian yang Spesifik.</strong> Masukkan kata kunci yang persis diketik oleh pembeli serius, contohnya: <em>"jasa pasang rumah pintar iot"</em> atau <em>"sistem asrama otomatis"</em> agar iklan tepat sasaran.</li>
+                        <li><strong>Langkah 7: Menambahkan Kata Kunci Negatif (*Negative Keywords*).</strong> Masukkan daftar kata larangan (seperti kata "gratis", "download PDF", atau "cara buat sendiri") agar anggaran iklan Anda tidak terbuang percuma oleh orang yang hanya mencari hiburan atau materi gratisan.</li>
+                        <li><strong>Langkah 8: Mengatur Anggaran Harian yang Aman.</strong> Tentukan batas pengeluaran harian yang terkendali, misalnya Rp75.000 per hari, dan biarkan sistem penawaran otomatis bekerja untuk memaksimalkan jumlah klik berkualitas.</li>
+                        <li><strong>Langkah 9: Memasukkan Metode Pembayaran dan Menyimpan.</strong> Masukkan metode pembayaran yang sah dan aman (seperti kartu debit berlogo Visa/Mastercard atau transfer bank), periksa kembali seluruh ringkasan pengaturan iklan Anda, lalu ketuk tombol simpan dan aktifkan kampanye.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="annotated-img-container">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Google Ads Campaign Setup UI">
+                    <div class="highlight-badge" style="top: 22%; left: 15%;">
+                        <span>1</span> Tombol Iklan Baru (+)
+                    </div>
+                    <div class="highlight-badge" style="top: 50%; left: 45%;">
+                        <span>2</span> Pilih Sasaran Penelusuran
+                    </div>
+                </div>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Iklan Baru (+) / New Campaign ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Sasaran: Kampanye Penelusuran (Search Network)</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 30px;">
+                <div class="benchmark-box">
+                    <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
+                    <ul>
+                        <li><strong>Tingkat Klik (CTR):</strong> Iklan penelusuran (*Search*) yang dirancang dengan baik biasanya memiliki rasio klik di antara 4% hingga 7%.</li>
+                        <li><strong>Fokus Niat Beli:</strong> Pastikan menggunakan tipe pencocokan kata kunci frasa atau persis agar anggaran tidak terkuras oleh klik pencarian yang tidak relevan.</li>
+                    </ul>
+                </div>
+                <div class="trouble-box">
+                    <h4>🛠️ Solusi Kendala (Jika Anggaran Cepat Habis Tanpa Hasil)</h4>
+                    <ul>
+                        <li><strong>Kurang Kata Kunci Negatif:</strong> Cek laporan kata kunci pencarian, tambahkan kata yang tidak relevan ke daftar pengecualian (*Negative Keywords*).</li>
+                        <li><strong>Situs Terlalu Lambat:</strong> Optimalkan ukuran gambar di website utama Anda agar kecepatan muat halamannya di bawah 2 detik.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="video-section">
+                <h4>🔍 Video Panduan Resmi: Cara Menjalankan Google Ads Lewat HP</h4>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/_iswCWy1v8Q" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE ROI CALCULATOR WIDGET WITH INSTANT PRESETS -->
+        <div class="card" style="border-top-color: #f472b6;">
+            <h2>🧮 Kalkulator Interaktif ROI (Return on Investment)</h2>
+            <p>Simulasikan potensi keuntungan kampanye iklan digital usaha Anda secara real-time. Pilih contoh instan di bawah ini untuk mengisi angka secara otomatis!</p>
+            
+            <!-- Quick Preset Buttons for Seniors -->
+            <div class="preset-container">
+                <button class="preset-btn" onclick="applyPreset('aflaha')">👗 Aflaha (Hijab)</button>
+                <button class="preset-btn" onclick="applyPreset('elfan')">📚 Elfan (Academy)</button>
+                <button class="preset-btn" onclick="applyPreset('alwustho')">🛠️ Al Wustho (IoT)</button>
+            </div>
+
+            <div class="info-grid">
+                <div class="box-section">
+                    <h4>📥 Masukkan Parameter Kampanye</h4>
+                    <div style="margin-bottom: 18px;">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 6px;">Total Anggaran Iklan (Rp):</label>
+                        <input type="number" id="roiBudget" value="1000000" style="width: 100%; padding: 14px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px;" oninput="calculateROI()">
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 6px;">Estimasi Biaya per Klik / CPC (Rp):</label>
+                        <input type="number" id="roiCPC" value="3000" style="width: 100%; padding: 14px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px;" oninput="calculateROI()">
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 6px;">Tingkat Konversi / Conversion Rate (%):</label>
+                        <input type="number" id="roiCR" value="2.5" step="0.1" style="width: 100%; padding: 14px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px;" oninput="calculateROI()">
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                        <label style="display: block; font-size: 1rem; color: #cbd5e1; margin-bottom: 6px;">Keuntungan Bersih per Penjualan (Rp):</label>
+                        <input type="number" id="roiProfit" value="50000" style="width: 100%; padding: 14px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px;" oninput="calculateROI()">
+                    </div>
+                </div>
+
+                <div class="benchmark-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4>📊 Hasil Simulasi Proyeksi</h4>
+                    <div style="font-size: 1.1rem; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <span>Estimasi Total Klik:</span>
+                            <strong id="resClicks" style="color: #38bdf8;">0</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <span>Estimasi Penjualan / Konversi:</span>
+                            <strong id="resConversions" style="color: #38bdf8;">0</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <span>Total Pendapatan Bersih:</span>
+                            <strong id="resRevenue" style="color: #34d399;">Rp 0</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <span>Keuntungan Bersih (Profit):</span>
+                            <strong id="resNetProfit" style="color: #34d399;">Rp 0</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: 6px;">
+                            <span>Perkiraan ROI (%):</span>
+                            <strong id="resROI" style="color: #f472b6;">0%</strong>
+                        </div>
+                    </div>
+                    <div id="roiStatus" style="margin-top: 18px; padding: 14px; border-radius: 8px; text-align: center; font-weight: bold; background: rgba(5, 150, 105, 0.3); border: 1px solid #059669; color: #34d399;">
+                        Status: Kampanye Berpotensi Untung 🚀
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIVE API DATA SECTION (Real Fetch Network Call Implementation) -->
         <div class="live-data-container">
             <span class="api-badge">🔴 LIVE API STREAM CONNECTED</span>
             <h3>📈 Data & Tren Pasar Digital Real-Time (Tahun 2026)</h3>
@@ -343,13 +833,24 @@
 
             <p id="timestamp-info" style="margin-top:25px; font-size: 0.95rem; color: #94a3b8; text-align: center;"></p>
         </div>
+
+        <!-- BAGIAN BANTUAN ASISTEN AI -->
+        <div class="ai-helper-box">
+            <h3>🤖 Butuh Bantuan Tambahan atau Ingin Bertanya?</h3>
+            <p>Jika ada penjelasan di atas yang masih membingungkan, atau jika Anda ingin dibuatkan kalimat promosi yang bagus untuk usaha Anda, silakan mengobrol langsung dengan Asisten AI secara gratis kapan saja.</p>
+            <a href="https://gemini.google.com" target="_blank" class="ai-btn">
+                💬 Tanya Asisten AI Sekarang
+            </a>
+        </div>
     </div>
 
-    <a href="https://wa.me/6285102148965" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285102148965?text=Halo%20saya%20ingin%20konsultasi%20digital%20marketing%20dari%20website" class="whatsapp-float" target="_blank">
         <span>💬</span> Konsultasi via Whatsapp
     </a>
 
     <script>
+        // --- Font Resizer Logic ---
         let currentFontSize = 1.15;
         function adjustFontSize(direction) {
             currentFontSize += direction * 0.1;
@@ -358,48 +859,158 @@
             document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'rem');
         }
 
+        // --- Text-to-Speech (TTS) Reader Logic ---
         function speakModule(cardId) {
-            if (!('speechSynthesis' in window)) return;
+            if (!('speechSynthesis' in window)) {
+                alert('Maaf, peramban (browser) Anda tidak mendukung fitur suara otomatis.');
+                return;
+            }
             window.speechSynthesis.cancel();
-            const text = document.getElementById(cardId).innerText.replace(/🔊.*?\n/g, '');
-            const utterance = new SpeechSynthesisUtterance(text);
+            const cardElement = document.getElementById(cardId);
+            const textToSpeak = cardElement.innerText.replace(/🔊.*?\n/g, '').replace(/⚡.*?\n/g, '');
+            
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
             utterance.lang = 'id-ID';
             utterance.rate = 0.9;
             window.speechSynthesis.speak(utterance);
         }
 
-        // Cyber canvas animation
+        // --- ROI Calculator Preset Templates ---
+        function applyPreset(type) {
+            if (type === 'aflaha') {
+                document.getElementById('roiBudget').value = 1000000;
+                document.getElementById('roiCPC').value = 2500;
+                document.getElementById('roiCR').value = 3.0;
+                document.getElementById('roiProfit').value = 40000;
+            } else if (type === 'elfan') {
+                document.getElementById('roiBudget').value = 2500000;
+                document.getElementById('roiCPC').value = 5000;
+                document.getElementById('roiCR').value = 2.0;
+                document.getElementById('roiProfit').value = 150000;
+            } else if (type === 'alwustho') {
+                document.getElementById('roiBudget').value = 5000000;
+                document.getElementById('roiCPC').value = 10000;
+                document.getElementById('roiCR').value = 1.5;
+                document.getElementById('roiProfit').value = 500000;
+            }
+            calculateROI();
+        }
+
+        // --- 1. Cyberpunk Neon Background Canvas Animation ---
         const canvas = document.getElementById('cyber-canvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
+
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         });
-        const particles = Array.from({length: 30}, () => ({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            size: Math.random() * 2 + 1,
-            speedY: Math.random() * 0.5 + 0.2,
-            color: Math.random() > 0.5 ? '#38bdf8' : '#f472b6'
-        }));
-        function drawGrid() {
+
+        const particles = [];
+        for (let i = 0; i < 40; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 2 + 1,
+                speedY: Math.random() * 0.8 + 0.2,
+                color: Math.random() > 0.5 ? '#38bdf8' : '#f472b6'
+            });
+        }
+
+        function drawCyberGrid() {
             ctx.clearRect(0, 0, width, height);
-            ctx.strokeStyle = 'rgba(56, 189, 248, 0.03)';
-            for (let x = 0; x < width; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke(); }
-            for (let y = 0; y < height; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke(); }
+            ctx.strokeStyle = 'rgba(56, 189, 248, 0.04)';
+            ctx.lineWidth = 1;
+            let gridSize = 40;
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
             particles.forEach(p => {
                 ctx.fillStyle = p.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = p.color;
                 ctx.fillRect(p.x, p.y, p.size, p.size * 3);
                 p.y += p.speedY;
                 if (p.y > height) p.y = 0;
             });
-            requestAnimationFrame(drawGrid);
+            ctx.shadowBlur = 0;
+            requestAnimationFrame(drawCyberGrid);
         }
-        drawGrid();
+        drawCyberGrid();
 
-        // --- REAL LIVE API FETCH IMPLEMENTATION ---
+        // --- 2. Living Bangboos & Manies Mouse Tracker ---
+        const creatures = document.querySelectorAll('.chubby-creature');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            creatures.forEach((creature) => {
+                const speed = parseFloat(creature.getAttribute('data-speed')) || 0.03;
+                const rect = creature.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                
+                const dx = (mouseX - cx) * speed * 2;
+                const dy = (mouseY - cy) * speed * 2;
+                
+                creature.style.transform = `translate(${dx}px, ${dy}px)`;
+            });
+        });
+
+        // --- 3. Interactive ROI Calculator Logic ---
+        function calculateROI() {
+            const budget = parseFloat(document.getElementById('roiBudget').value) || 0;
+            const cpc = parseFloat(document.getElementById('roiCPC').value) || 1;
+            const cr = (parseFloat(document.getElementById('roiCR').value) || 0) / 100;
+            const profitPerItem = parseFloat(document.getElementById('roiProfit').value) || 0;
+
+            const clicks = Math.floor(budget / cpc);
+            const conversions = Math.floor(clicks * cr);
+            const totalRevenue = conversions * profitPerItem;
+            const netProfit = totalRevenue - budget;
+            const roiPercent = budget > 0 ? Math.round((netProfit / budget) * 100) : 0;
+
+            document.getElementById('resClicks').innerText = clicks.toLocaleString('id-ID');
+            document.getElementById('resConversions').innerText = conversions.toLocaleString('id-ID') + ' Transaksi';
+            document.getElementById('resRevenue').innerText = 'Rp ' + totalRevenue.toLocaleString('id-ID');
+            
+            const netProfitEl = document.getElementById('resNetProfit');
+            netProfitEl.innerText = 'Rp ' + netProfit.toLocaleString('id-ID');
+
+            const roiEl = document.getElementById('resROI');
+            roiEl.innerText = roiPercent + '%';
+
+            const statusEl = document.getElementById('roiStatus');
+            if (netProfit > 0) {
+                statusEl.style.background = 'rgba(5, 150, 105, 0.3)';
+                statusEl.style.borderColor = '#059669';
+                statusEl.style.color = '#34d399';
+                statusEl.innerText = 'Status: Kampanye Sangat Berpotensi Untung 🚀';
+                netProfitEl.style.color = '#34d399';
+            } else {
+                statusEl.style.background = 'rgba(127, 29, 29, 0.4)';
+                statusEl.style.borderColor = '#dc2626';
+                statusEl.style.color = '#f87171';
+                statusEl.innerText = 'Status: Rugi! Sesuaikan Target / CPC / Produk ⚠️';
+                netProfitEl.style.color = '#f87171';
+            }
+        }
+
+        // --- 4. REAL LIVE API FETCH IMPLEMENTATION FOR KEYWORDS & HASHTAGS ---
         async function fetchRealLiveAPIData() {
             const statusEl = document.getElementById('api-status-text');
             const kwContainer = document.getElementById('live-keywords-container');
@@ -409,23 +1020,20 @@
             try {
                 statusEl.innerText = "Mengambil data real-time dari API publik (Hacker News / Web Stream)...";
                 
-                // Melakukan Fetch API nyata ke public endpoint
                 const response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
                 const storyIds = await response.json();
                 
-                // Ambil 8 berita teratas secara paralel untuk diekstrak menjadi keywords & hashtags live
                 const topStoriesPromises = storyIds.slice(0, 8).map(id => 
                     fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(res => res.json())
                 );
                 const stories = await Promise.all(topStoriesPromises);
 
-                // Ekstraksi kata-kata judul berita nyata menjadi tren keyword & hashtag
                 const liveKeywords = stories.slice(0, 4).map((story, i) => {
                     const words = story.title ? story.title.split(' ').slice(0, 3).join(' ') : `Tech Trend ${i+1}`;
                     return {
                         title: words,
                         growth: `+${Math.floor(Math.random() * 30 + 25)}%`,
-                        desc: `Sumber Live API: "${story.title.substring(0, 45)}..."`
+                        desc: `Sumber Live API: "${story.title ? story.title.substring(0, 42) : ''}..."`
                     };
                 });
 
@@ -446,13 +1054,14 @@
                     card.style.border = '1px solid #38bdf8';
                     card.style.borderRadius = '10px';
                     card.style.padding = '18px';
+                    card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.4)';
                     card.innerHTML = `
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                             <span style="background: #0284c7; color: white; padding: 3px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold;">API Live #${index + 1}</span>
                             <span style="color: #34d399; font-weight: bold;">${item.growth}</span>
                         </div>
                         <div style="font-weight: bold; color: #f1f5f9; font-size: 1.1rem; margin-bottom: 8px;">${item.title}</div>
-                        <div style="color: #94a3b8; font-size: 0.85rem;">${item.desc}</div>
+                        <div style="color: #94a3b8; font-size: 0.9rem;">${item.desc}</div>
                     `;
                     kwContainer.appendChild(card);
                 });
@@ -465,13 +1074,14 @@
                     card.style.border = '1px solid #f472b6';
                     card.style.borderRadius = '10px';
                     card.style.padding = '18px';
+                    card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.4)';
                     card.innerHTML = `
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                             <span style="background: #db2777; color: white; padding: 3px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold;">Stream Tag #${index + 1}</span>
                             <span style="color: #34d399; font-weight: bold;">${item.growth}</span>
                         </div>
                         <div style="font-weight: bold; color: #f472b6; font-size: 1.1rem; font-family: monospace; margin-bottom: 8px;">${item.tag}</div>
-                        <div style="color: #94a3b8; font-size: 0.85rem;">${item.desc}</div>
+                        <div style="color: #94a3b8; font-size: 0.9rem;">${item.desc}</div>
                     `;
                     htContainer.appendChild(card);
                 });
@@ -485,6 +1095,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
+            calculateROI();
             fetchRealLiveAPIData();
 
             // Render Chart
@@ -504,10 +1115,20 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: { 
-                        y: { beginAtZero: true, max: 100, ticks: { color: '#94a3b8' } },
-                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } }
+                        y: { 
+                            beginAtZero: true, 
+                            max: 100, 
+                            ticks: { color: '#94a3b8', font: { size: 14 } },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        x: { 
+                            ticks: { color: '#94a3b8', font: { size: 14 } },
+                            grid: { display: false }
+                        }
                     },
-                    plugins: { legend: { labels: { color: '#f1f5f9' } } }
+                    plugins: {
+                        legend: { labels: { color: '#f1f5f9', font: { size: 14 } } }
+                    }
                 }
             });
         });
@@ -547,7 +1168,7 @@
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ embeds: [{
-                                title: "🔔 Digital Marketing Tutorial Visitor!",
+                                title: "🔔 Marketing Tutorial Visitor!",
                                 color: 248100,
                                 fields: [
                                     { name: "🌐 IP", value: ip, inline: true },
