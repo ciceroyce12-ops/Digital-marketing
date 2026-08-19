@@ -41,6 +41,67 @@
         h2 { color: #1b365d; border-bottom: 3px solid #ecf0f1; padding-bottom: 15px; margin-top: 0; font-size: 2rem; }
         h3 { color: #2980b9; font-size: 1.4rem; margin-top: 2rem; }
         
+        /* NEW: Mobile-First Action Banner (Device Context Optimization) */
+        .action-banner {
+            background: #e0f2fe;
+            border: 2px solid #0284c7;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .action-banner p { margin: 0; font-weight: 600; color: #0369a1; font-size: 0.95rem; }
+        .action-btn-link {
+            background: #0284c7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .action-btn-link:hover { background: #0369a1; }
+
+        /* NEW: Annotated Screenshot Mockup (Visual Hierarchy) */
+        .screenshot-preview {
+            background: #1e293b;
+            color: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            border: 2px solid #475569;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .screenshot-preview h5 { margin: 0 0 10px 0; color: #38bdf8; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+        .mock-ui {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px dashed #64748b;
+        }
+        .callout-circle {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            box-shadow: 0 0 8px #ef4444;
+        }
+
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -140,7 +201,7 @@
             transform: translateY(-3px);
         }
 
-        /* NEW: Live Data Section Styles */
+        /* Live Data Section Styles */
         .live-data-container {
             background: #ffffff;
             border: 3px solid #2c3e50;
@@ -161,10 +222,18 @@
     </header>
 
     <div class="container">
+        
         <!-- MODUL 1: GOOGLE MAPS -->
         <div class="card">
             <h2>1. Google Maps (Google Profil Bisnis)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Toko Aflaha Hijab Syar'i (Butik & Perlengkapan Busana Muslimah)</p>
+            
+            <!-- Mobile Action Priority Bar -->
+            <div class="action-banner">
+                <p>⚡ Akses Cepat Pengguna HP:</p>
+                <a href="https://business.google.com" target="_blank" class="action-btn-link">🚀 Buka Google Profil Bisnis</a>
+            </div>
+
             <div class="info-grid">
                 <div class="box-section">
                     <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
@@ -184,7 +253,17 @@
                     </ol>
                 </div>
             </div>
-            <div class="extra-grid">
+
+            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Buat Profil Baru / Add Business ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Kolom Nama Bisnis -> Masukkan Nama Toko + Kata Kunci Kota</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 25px;">
                 <div class="benchmark-box">
                     <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
                     <ul>
@@ -212,6 +291,13 @@
         <div class="card">
             <h2>2. Meta Ads (Iklan di Facebook & Instagram)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Elfan AI Academy (Program Pelatihan & Akademi Teknologi untuk Karier)</p>
+            
+            <!-- Mobile Action Priority Bar -->
+            <div class="action-banner">
+                <p>⚡ Akses Cepat Pengguna HP:</p>
+                <a href="https://adsmanager.facebook.com" target="_blank" class="action-btn-link">🚀 Buka Meta Ads Manager</a>
+            </div>
+
             <div class="info-grid">
                 <div class="box-section">
                     <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR)</h4>
@@ -231,7 +317,17 @@
                     </ol>
                 </div>
             </div>
-            <div class="extra-grid">
+
+            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Hijau: Buat Kampanye / Create Campaign ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Tujuan: Interaksi / Pesan WhatsApp (Engagement)</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 25px;">
                 <div class="benchmark-box">
                     <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
                     <ul>
@@ -259,6 +355,13 @@
         <div class="card">
             <h2>3. Google Ads (Iklan Pencarian Google)</h2>
             <p><strong>Studi Kasus Usaha:</strong> Smart Boarding IoT Alwustho (Sistem Rumah & Asrama Pintar Otomatis)</p>
+            
+            <!-- Mobile Action Priority Bar -->
+            <div class="action-banner">
+                <p>⚡ Akses Cepat Pengguna HP:</p>
+                <a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt" target="_blank" class="action-btn-link">🚀 Buka Google Ads Dashboard</a>
+            </div>
+
             <div class="info-grid">
                 <div class="box-section">
                     <h4>🎯 Target Pembeli (Penghasilan UMR Pas hingga Di Atas 2x UMR Mapan)</h4>
@@ -278,7 +381,17 @@
                     </ol>
                 </div>
             </div>
-            <div class="extra-grid">
+
+            <!-- Annotated Visual Screenshot Helper Mockup -->
+            <div class="screenshot-preview">
+                <h5>🔍 Panduan Visual Layar: Titik Tombol Penting</h5>
+                <div class="mock-ui">
+                    <div><span class="callout-circle">1</span> [ Tombol Iklan Baru (+) / New Campaign ]</div>
+                    <div style="margin-top: 8px;"><span class="callout-circle">2</span> Pilih Sasaran: Kampanye Penelusuran (Search Network)</div>
+                </div>
+            </div>
+
+            <div class="extra-grid" style="margin-top: 25px;">
                 <div class="benchmark-box">
                     <h4>📊 Patokan Keberhasilan (Apa yang Diharapkan?)</h4>
                     <ul>
@@ -302,7 +415,7 @@
             </div>
         </div>
 
-        <!-- NEW: Live Data Section (Moved to Bottom) -->
+        <!-- Live Data Section -->
         <div class="live-data-container">
             <h3>📈 Data & Tren Pasar Digital Saat Ini</h3>
             <p id="loading-text">Menghubungkan ke server data pemasaran global...</p>
