@@ -1,42 +1,45 @@
 const fs = require('fs');
 
-const GOOGLE_TRENDS_URL = 'https://trends.google.com/trends/api/dailytrends?hl=id&tz=-420&geo=ID&ns=15';
+const GOOGLE_TRENDS_URL = 'https://trends.google.com/trends/trendingsearches/daily/rss?geo=ID';
 const TIKTOK_TRENDS_URL = 'https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en?countryCode=ID&period=7';
 
 async function fetchGoogle() {
     try {
         const res = await fetch(GOOGLE_TRENDS_URL, {
             headers: { 
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'application/json, text/plain, */*'
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
             }
         });
 
         if (!res.ok) {
-            console.error(`Google API returned status ${res.status}`);
+            console.error(`Google RSS returned status ${res.status}`);
             return [];
         }
 
-        const text = await res.text();
+        const xml = await res.text();
         
-        // Stop if Google returns an HTML block page instead of JSON
-        if (text.trim().startsWith('<!doctype') || text.trim().startsWith('<html')) {
-            console.error("Google Trends returned an HTML page instead of JSON (likely blocked or rate-limited).");
-            return [];
+        const results = [];
+        const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+        let match;
+
+        while ((match = itemRegex.exec(xml)) !== null && results.length < 4) {
+            const itemContent = match[1];
+            
+            const titleMatch = itemContent.match(/<title>(.*?)<\/title>/);
+            const trafficMatch = itemContent.match(/<ht:approx_traffic>(.*?)<\/ht:approx_traffic>/);
+            const linkMatch = itemContent.match(/<link>(.*?)<\/link>/);
+
+            if (titleMatch) {
+                results.push({
+                    title: titleMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1').trim(),
+                    traffic: trafficMatch ? trafficMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1').trim() : 'Trending',
+                    started: 'Hari ini',
+                    url: linkMatch ? linkMatch[1].trim() : 'https://trends.google.com/trends?geo=ID&hl=id'
+                });
+            }
         }
 
-        // Clean the anti-XSSI prefix Google uses
-        const cleaned = text.replace(/^\)\]\}',?\s*/, '');
-        const data = JSON.parse(cleaned);
-        const days = data?.default?.trendingSearchesDays || [];
-        const stories = days.flatMap(day => day.trendingSearches || []);
-        
-        return stories.slice(0, 4).map(story => ({
-            title: story.title?.query || story.title,
-            traffic: story.formattedTraffic || story.traffic,
-            started: story.formattedTime || story.startTime,
-            url: story.shareUrl || 'https://trends.google.com/trending?geo=ID&hl=id'
-        }));
+        return results;
     } catch (e) {
         console.error("Google Fetch Error:", e);
         return [];
@@ -79,9 +82,8 @@ async function run() {
         tiktok: tiktokData
     };
 
-    // Save the data to a JSON file
     fs.writeFileSync('trends.json', JSON.stringify(finalData, null, 2));
-    console.log("trends.json successfully generated!");
+    console.log("trends.json successfully generated with RSS data!");
 }
 
 run();
