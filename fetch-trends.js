@@ -5,8 +5,26 @@ const TIKTOK_TRENDS_URL = 'https://ads.tiktok.com/business/creativecenter/inspir
 
 async function fetchGoogle() {
     try {
-        const res = await fetch(GOOGLE_TRENDS_URL);
+        const res = await fetch(GOOGLE_TRENDS_URL, {
+            headers: { 
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/json, text/plain, */*'
+            }
+        });
+
+        if (!res.ok) {
+            console.error(`Google API returned status ${res.status}`);
+            return [];
+        }
+
         const text = await res.text();
+        
+        // Stop if Google returns an HTML block page instead of JSON
+        if (text.trim().startsWith('<!doctype') || text.trim().startsWith('<html')) {
+            console.error("Google Trends returned an HTML page instead of JSON (likely blocked or rate-limited).");
+            return [];
+        }
+
         // Clean the anti-XSSI prefix Google uses
         const cleaned = text.replace(/^\)\]\}',?\s*/, '');
         const data = JSON.parse(cleaned);
@@ -27,7 +45,6 @@ async function fetchGoogle() {
 
 async function fetchTikTok() {
     try {
-        // We set a User-Agent to pretend we are a browser, otherwise TikTok blocks the automated request
         const res = await fetch(TIKTOK_TRENDS_URL, {
             headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
         });
