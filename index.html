@@ -1101,13 +1101,23 @@
             </div>
         </section>
 
-        <!-- BAGIAN BANTUAN ASISTEN AI -->
-        <div class="ai-helper-box">
-            <h3>🤖 Butuh Bantuan Tambahan atau Ingin Bertanya?</h3>
-            <p>Jika ada penjelasan di atas yang masih membingungkan, atau jika Anda ingin dibuatkan kalimat promosi yang bagus untuk usaha Anda, silakan mengobrol langsung dengan Asisten AI secara gratis kapan saja.</p>
-            <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="ai-btn">
-                💬 Tanya Asisten AI Sekarang
-            </a>
+        <!-- BAGIAN BANTUAN ASISTEN AI (REPLACED WITH LOCAL CHAT CONTAINER) -->
+        <div class="ai-helper-box" style="text-align: left;">
+            <h3 style="text-align: center; margin-top: 0; color: #38bdf8;">🤖 Asisten AI Lokal (Browser-Side)</h3>
+            <p style="text-align: center; color: #94a3b8; max-width: 700px; margin: 0 auto 20px;">
+                Bertanya langsung dengan AI yang berjalan di perangkat Anda (memerlukan browser yang mendukung Built-in AI/Gemini Nano).
+            </p>
+            
+            <!-- Chat History Box -->
+            <div id="local-chat-history" style="height: 220px; overflow-y: auto; background: #020617; padding: 16px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #334155; font-size: 0.95rem;">
+                <div style="color: #94a3b8; margin-bottom: 8px;">💡 <em>Sistem: Ketik pertanyaan seputar pemasaran digital di bawah ini...</em></div>
+            </div>
+
+            <!-- Input & Button Row -->
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="local-chat-input" placeholder="Tulis pesan atau pertanyaan..." style="flex: 1; min-width: 200px; padding: 14px; background: #0f172a; border: 1px solid #475569; color: #fff; border-radius: 8px; font-size: 1rem;">
+                <button type="button" onclick="handleLocalAIPrompt()" class="font-btn" style="background: #0284c7; margin: 0; cursor: pointer;">Kirim Pesan</button>
+            </div>
         </div>
     </main>
 
