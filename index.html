@@ -1072,20 +1072,91 @@
             document.documentElement.style.setProperty('--base-font-size', currentFontSize + 'rem');
         }
 
-        // --- Text-to-Speech (TTS) Reader Logic ---
+        // --- Text-to-Speech (TTS) Reader Logic (Full-Content Support with Chunking) ---
+        let voicesLoaded = false;
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.getVoices();
+            if (window.speechSynthesis.onvoiceschanged !== undefined) {
+                window.speechSynthesis.onvoiceschanged = () => {
+                    voicesLoaded = true;
+                };
+            }
+        }
+
         function speakModule(cardId) {
             if (!('speechSynthesis' in window)) {
                 alert('Maaf, peramban (browser) Anda tidak mendukung fitur suara otomatis.');
                 return;
             }
-            window.speechSynthesis.cancel();
-            const cardElement = document.getElementById(cardId);
-            const textToSpeak = cardElement.innerText.replace(/🔊.*?\n/g, '').replace(/⚡.*?\n/g, '');
             
-            const utterance = new SpeechSynthesisUtterance(textToSpeak);
-            utterance.lang = 'id-ID';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            window.speechSynthesis.cancel();
+            
+            const cardElement = document.getElementById(cardId);
+            if (!cardElement) return;
+
+            let textToSpeak = cardElement.innerText
+                .replace(/🔊.*?\n?/g, '')
+                .replace(/⚡.*?\n?/g, '')
+                .trim();
+
+            if (!textToSpeak) {
+                alert('Tidak ada teks yang dapat dibaca di modul ini.');
+                return;
+            }
+
+            const chunks = splitTextIntoChunks(textToSpeak, 200);
+            let currentChunkIndex = 0;
+
+            function speakNextChunk() {
+                if (currentChunkIndex >= chunks.length) return;
+
+                const utterance = new SpeechSynthesisUtterance(chunks[currentChunkIndex]);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.9;
+
+                const voices = window.speechSynthesis.getVoices();
+                const indonesianVoice = voices.find(v => v.lang.startsWith('id') || v.lang.includes('ID'));
+                if (indonesianVoice) {
+                    utterance.voice = indonesianVoice;
+                }
+
+                utterance.onend = () => {
+                    currentChunkIndex++;
+                    speakNextChunk();
+                };
+
+                utterance.onerror = (e) => {
+                    console.error("Speech synthesis error on chunk:", e);
+                };
+
+                window.speechSynthesis.speak(utterance);
+            }
+
+            speakNextChunk();
+        }
+
+        function splitTextIntoChunks(text, maxLength) {
+            const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g) || [text];
+            const chunks = [];
+            let currentChunk = '';
+
+            for (let sentence of sentences) {
+                if ((currentChunk + sentence).length <= maxLength) {
+                    currentChunk += sentence;
+                } else {
+                    if (currentChunk) chunks.push(currentChunk.trim());
+                    currentChunk = sentence;
+                }
+            }
+            if (currentChunk) chunks.push(currentChunk.trim());
+            
+            if (chunks.length === 0) {
+                for (let i = 0; i < text.length; i += maxLength) {
+                    chunks.push(text.substring(i, i + maxLength));
+                }
+            }
+            return chunks;
         }
 
         // --- ROI Calculator Preset Templates ---
@@ -1252,12 +1323,10 @@
 
             if (!userText) return;
 
-            // Tampilkan pesan pengguna di riwayat
             historyEl.innerHTML += `<div style="margin-bottom: 10px; color: #7dd3fc;"><strong>Anda:</strong> ${escapeHtml(userText)}</div>`;
             inputEl.value = '';
             historyEl.scrollTop = historyEl.scrollHeight;
 
-            // Cek ketersediaan Browser Built-in AI (Prompt API / Gemini Nano)
             if (!window.ai && !window.LanguageModel) {
                 historyEl.innerHTML += `<div style="margin-bottom: 10px; color: #f87171;"><strong>Sistem:</strong> Browser Anda belum mendukung Built-in AI lokal atau fiturnya belum diaktifkan.</div>`;
                 historyEl.scrollTop = historyEl.scrollHeight;
@@ -1268,12 +1337,10 @@
                 historyEl.innerHTML += `<div id="ai-loading" style="margin-bottom: 10px; color: #fbbf24;"><em>AI sedang memproses secara lokal...</em></div>`;
                 historyEl.scrollTop = historyEl.scrollHeight;
 
-                // Membuat sesi AI lokal
                 const aiSession = await (window.ai?.languageModel?.create() || window.LanguageModel.create());
                 const responseText = await aiSession.prompt(userText);
                 aiSession.destroy();
 
-                // Hapus teks loading dan tampilkan jawaban AI
                 document.getElementById('ai-loading').remove();
                 historyEl.innerHTML += `<div style="margin-bottom: 10px; color: #34d399;"><strong>AI Lokal:</strong> ${escapeHtml(responseText)}</div>`;
                 historyEl.scrollTop = historyEl.scrollHeight;
